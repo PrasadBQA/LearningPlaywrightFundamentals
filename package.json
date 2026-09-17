@@ -1,0 +1,18 @@
+{
+  "name": "learnplaywrightfundamentals",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "allowScripts": {
+    "@playwright/test": true,
+    "playwright": true
+  },
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {},
+  "keywords": [],
+  "devDependencies": {
+    "@playwright/test": "^1.63.0",
+    "@types/node": "^22.20.3"
+  }
+}
