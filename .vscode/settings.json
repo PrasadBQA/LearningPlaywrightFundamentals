@@ -1,0 +1,12 @@
+{
+    "chat.tools.terminal.autoApprove": {
+        "/^git status --short; git branch --show-current; git remote -v$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "/^git add -A; git diff --cached --stat; git status --short$/": {
+            "approve": true,
+            "matchCommandLine": true
+        }
+    }
+}
