@@ -23,6 +23,10 @@
         "/^git add tests/01_Basics/223\\.TA\\.spec\\.ts tests/01_Basics/224_Test_Options\\.spec\\.ts; git commit -m \"Add Playwright context option examples\"; git push origin main; git status --short; git log -1 --oneline$/": {
             "approve": true,
             "matchCommandLine": true
+        },
+        "/^git add \\.; git commit -m \"Add Playwright learning tests\"; git push origin main$/": {
+            "approve": true,
+            "matchCommandLine": true
         }
     }
 }
