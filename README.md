@@ -81,6 +81,90 @@ After a test run, open the HTML report with:
 npx playwright show-report
 ```
 
+## Allure Reporting
+
+Allure is a richer test reporting tool for Playwright. It gives you a cleaner dashboard, better test history, and easier debugging than the default terminal output.
+
+### Add the Allure reporter
+
+In `playwright.config.ts`, add the Allure Playwright reporter:
+
+```ts
+export default defineConfig({
+  // ...
+  reporter: [["line"], ["allure-playwright"]],
+});
+```
+
+This makes Playwright write result files for Allure while also printing the standard line-based terminal output.
+
+### Install the Allure command-line tool
+
+> Note: The Allure command-line tool requires Java to be installed on your machine. Make sure you have a JDK/JRE available and that `java` is on your PATH before running the Allure commands.
+
+```powershell
+npm i allure-commandline
+```
+
+`allure-commandline` is the tool used to generate and open the final Allure HTML report. It converts the raw result files created by Playwright into a readable report that you can open in a browser.
+
+### Install the Allure Playwright package
+
+```powershell
+npm i -D allure-playwright
+```
+
+This package connects Playwright to Allure so the results can be collected during test execution.
+
+### Add a custom log to the report
+
+If you want to attach a custom text log or note to an Allure test result, you can use an attachment like this:
+
+```ts
+import * as allure from "allure-js-commons";
+import { ContentType } from "allure-js-commons";
+
+test("dashboard loads", async () => {
+  await allure.attachment("Text file", "This is the file content.", ContentType.TEXT);
+});
+```
+
+This adds a custom text artifact to the generated Allure report, which is useful for debug logs, captured values, or any short text output you want to keep with the test.
+
+### Run the tests with Allure enabled
+
+```powershell
+npx playwright test --reporter=line,allure-playwright
+```
+
+This runs the tests and creates the Allure result data in the `allure-results` folder.
+
+### Generate the HTML report
+
+```powershell
+npx allure generate allure-results --clean -o allure-report
+```
+
+- `allure-results` is the source folder containing the generated execution data.
+- `--clean` clears old report output before generating a fresh one.
+- `-o allure-report` writes the final HTML report to the `allure-report` folder.
+
+### Open the report in a browser
+
+```powershell
+npx allure open allure-report
+```
+
+This opens the generated Allure report locally.
+
+### Serve the report directly
+
+```powershell
+npx allure serve allure-results
+```
+
+This starts a local server and serves the report directly from the generated Allure result data without creating a static HTML folder first.
+
 ## Generate Tests with Codegen
 
 Playwright `codegen` opens a browser, records actions such as typing and clicking, and generates Playwright code for those actions. It is useful for creating a starting point for a test.
