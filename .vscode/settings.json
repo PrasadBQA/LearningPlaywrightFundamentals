@@ -27,6 +27,10 @@
         "/^git add \\.; git commit -m \"Add Playwright learning tests\"; git push origin main$/": {
             "approve": true,
             "matchCommandLine": true
+        },
+        "/^git add README\\.md; git commit -m \"Update README\"; git push origin main$/": {
+            "approve": true,
+            "matchCommandLine": true
         }
     }
 }
