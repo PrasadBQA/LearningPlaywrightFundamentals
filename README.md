@@ -1,270 +1,3 @@
-# Learn Playwright Fundamentals
-
-A beginner-friendly Playwright project for learning browser automation and end-to-end testing with TypeScript.
-
-## Prerequisites
-
-Install the following before setting up the project:
-
-- Node.js `26.5.0` or newer
-- npm `11.19.1` or newer
-- VS Code or another code editor
-
-Check your installed versions:
-
-```powershell
-node --version
-npm --version
-```
-
-The required versions are also recorded in `package.json` under `engines`.
-
-## Project Setup
-
-Open a terminal in the project folder and install the project dependencies:
-
-```powershell
-npm install
-```
-
-Install the Playwright browsers:
-
-```powershell
-npx playwright install
-```
-
-To install only Chromium:
-
-```powershell
-npx playwright install chromium
-```
-
-`npx playwright` uses the Playwright version installed in this project. It is not necessary to install Playwright globally.
-
-## Run Tests
-
-Run all Playwright tests:
-
-```powershell
-npx playwright test
-```
-
-Run one test file:
-
-```powershell
-npx playwright test tests/firsttest.spec.ts
-```
-
-Run tests with the browser visible:
-
-```powershell
-npx playwright test --headed
-```
-
-Run tests in a specific browser:
-
-```powershell
-npx playwright test --project=chromium
-```
-
-Run tests in debug mode:
-
-```powershell
-npx playwright test --debug
-```
-
-## View the Test Report
-
-After a test run, open the HTML report with:
-
-```powershell
-npx playwright show-report
-```
-
-## Allure Reporting
-
-Allure is a richer test reporting tool for Playwright. It gives you a cleaner dashboard, better test history, and easier debugging than the default terminal output.
-
-### Add the Allure reporter
-
-In `playwright.config.ts`, add the Allure Playwright reporter:
-
-```ts
-export default defineConfig({
-  // ...
-  reporter: [["line"], ["allure-playwright"]],
-});
-```
-
-This makes Playwright write result files for Allure while also printing the standard line-based terminal output.
-
-### Install the Allure command-line tool
-
-> Note: The Allure command-line tool requires Java to be installed on your machine. Make sure you have a JDK/JRE available and that `java` is on your PATH before running the Allure commands.
-
-```powershell
-npm i allure-commandline
-```
-
-`allure-commandline` is the tool used to generate and open the final Allure HTML report. It converts the raw result files created by Playwright into a readable report that you can open in a browser.
-
-### Install the Allure Playwright package
-
-```powershell
-npm i -D allure-playwright
-```
-
-This package connects Playwright to Allure so the results can be collected during test execution.
-
-### Add a custom log to the report
-
-If you want to attach a custom text log or note to an Allure test result, you can use an attachment like this:
-
-```ts
-import * as allure from "allure-js-commons";
-import { ContentType } from "allure-js-commons";
-
-test("dashboard loads", async () => {
-  await allure.attachment("Text file", "This is the file content.", ContentType.TEXT);
-});
-```
-
-This adds a custom text artifact to the generated Allure report, which is useful for debug logs, captured values, or any short text output you want to keep with the test.
-
-### Run the tests with Allure enabled
-
-```powershell
-npx playwright test --reporter=line,allure-playwright
-```
-
-This runs the tests and creates the Allure result data in the `allure-results` folder.
-
-### Generate the HTML report
-
-```powershell
-npx allure generate allure-results --clean -o allure-report
-```
-
-- `allure-results` is the source folder containing the generated execution data.
-- `--clean` clears old report output before generating a fresh one.
-- `-o allure-report` writes the final HTML report to the `allure-report` folder.
-
-### Open the report in a browser
-
-```powershell
-npx allure open allure-report
-```
-
-This opens the generated Allure report locally.
-
-### Serve the report directly
-
-```powershell
-npx allure serve allure-results
-```
-
-This starts a local server and serves the report directly from the generated Allure result data without creating a static HTML folder first.
-
-## Generate Tests with Codegen
-
-Playwright `codegen` opens a browser, records actions such as typing and clicking, and generates Playwright code for those actions. It is useful for creating a starting point for a test.
-
-Start codegen with the training application:
-
-```powershell
-npx playwright codegen https://app.thetestingacademy.com/playwright/ttacart/
-```
-
-Use Chromium, TypeScript, and a 1280 x 720 viewport:
-
-```powershell
-npx playwright codegen --browser chromium --target typescript --viewport-size "1280,720" https://app.thetestingacademy.com/playwright/ttacart/
-```
-
-### Codegen workflow
-
-1. Run a `codegen` command.
-2. Interact with the page in the browser that opens.
-3. Review the generated code in the Playwright Inspector.
-4. Copy the code into a `.spec.ts` file under `tests`.
-5. Add assertions with `expect`.
-6. Replace test data and credentials with safe test values or environment variables.
-7. Run the test with `npx playwright test`.
-
-Example generated test structure:
-
-```typescript
-import { test, expect } from '@playwright/test';
-
-test('shopping flow', async ({ page }) => {
-  await page.goto('https://app.thetestingacademy.com/playwright/ttacart/');
-  await page.getByRole('button', { name: 'Login' }).click();
-  await expect(page).toHaveURL(/.*login.*/);
-});
-```
-
-Codegen is a starting point. Always review its locators and add meaningful assertions. Do not commit real passwords, tokens, or other secrets.
-
-Save browser storage after a login flow:
-
-```powershell
-npx playwright codegen --save-storage=auth.json https://app.thetestingacademy.com/playwright/ttacart/
-```
-
-Load saved browser storage in a later session:
-
-```powershell
-npx playwright codegen --load-storage=auth.json https://app.thetestingacademy.com/playwright/ttacart/
-```
-
-## Useful Playwright Commands
-
-Open a page:
-
-```powershell
-npx playwright open --browser chromium https://example.com
-```
-
-Take a full-page screenshot:
-
-```powershell
-npx playwright screenshot --full-page https://example.com page.png
-```
-
-Show the installed Playwright version:
-
-```powershell
-npx playwright --version
-```
-
-Show command help:
-
-```powershell
-npx playwright --help
-```
-
-More command examples are available in [playwrightcommands.md](playwrightcommands.md).
-
-## Project Files
-
-- `tests/`: Playwright test files
-- `playwright.config.ts`: Playwright test configuration
-- `playwrightcommands.md`: CLI command notes
-- `package.json`: Project metadata and dependencies
-- `package-lock.json`: Exact dependency versions installed by npm
-- `playwright-report/`: Generated HTML test report, ignored by Git
-- `test-results/`: Generated test artifacts, ignored by Git
-
-## Security Notes
-
-Keep credentials and environment-specific values in `.env` or another secure secret store. Do not commit `.env`, authentication state, passwords, or tokens to Git.
-
-
-# Learning Playwright Fundamentals
-
-Hands-on Playwright + TypeScript practice repo used in **The Testing Academy** Playwright Fundamentals batch.
-Everything here is beginner friendly: install Playwright, run the sample tests, record your own tests with codegen, and read the HTML report.
-
 # Learning Playwright Fundamentals 3x
 
 Hands-on Playwright + TypeScript practice repo used in **The Testing Academy** Playwright Fundamentals batch.
@@ -400,7 +133,34 @@ LearningPlaywrightFundamentals3x/
 │   ├── 05_Allure_Reporting/
 │   │   ├── 233_Custom_Report_TestWingify.spec.ts  # run against the custom reporter
 │   │   └── 234_Media_Custom_Report.spec.ts        # screenshot + video + trace
-│   └── 06_.. 23_/             # remaining topics, see the curriculum table
+│   ├── 06_Multiple_Element_Filter/
+│   │   ├── 235_ME.spec.ts            # allInnerTexts, then act on a match
+│   │   └── 236_ME.spec.ts            # all() -> Locator[], read href per link
+│   ├── 07_WebTables/
+│   │   ├── 237_TestCase.spec.ts      # row loop, cells via allInnerTexts
+│   │   ├── 238_TestCase.spec.ts      # dynamic XPath + following-sibling
+│   │   ├── 239_TestCase.spec.ts      # filter({ hasText }) on a link list
+│   │   ├── 240_TestCase.spec.ts      # tr:has(td:text()) row selection
+│   │   ├── 241_WebTable_Pagination.spec.ts   # page-by-page search, inline
+│   │   └── 242_WebTable_Pagination.spec.ts   # same search as a helper
+│   ├── 08_Web_Select_Frames_Iframe/
+│   │   ├── 243_Select_TestCase.spec.ts       # native <select> via selectOption
+│   │   ├── 244_CustomDropDown_TestCase.spec.ts     # click-then-pick custom menu
+│   │   └── 245_AdvacneCustomDropDown_TestCase.spec.ts  # searchable, multi, async
+│   ├── 09_Frame_Iframe/
+│   │   ├── 246_Iframe_TestCase.spec.ts       # a form inside one iframe
+│   │   ├── 247_Framework_TestCase.spec.ts    # enumerate frames on a frameset
+│   │   └── 248_Nested_Iframe_TestCase.spec.ts      # three levels of nesting
+│   ├── 10_Keyboard_Hover_Drag_Drop_Calender/
+│   │   ├── 249_TestCase.spec.ts          # keyboard press, modifiers
+│   │   ├── 250_Hover_TestCase.spec.ts    # dragTo with force
+│   │   ├── 251_Drag_Drop.spec.ts         # dragTo, the simple case
+│   │   ├── 252_Advance_Drag_Drop.spec.ts # manual mouse drag with steps
+│   │   └── 253_Context_Drag_Drop.spec.ts # right click and read the menu
+│   ├── 11_JS_Alerts/
+│   │   └── 254_JS_Alerts.spec.ts         # dialog events, on vs once
+│   └── 12_.. 23_/             # remaining topics, see the curriculum table
+├── template/template.spec.ts  # starting skeleton for a new spec
 ├── ai/                        # RCA + flaky-analysis agents used by the reporter
 ├── utils/CustomReporter.ts    # custom HTML reporter (TTA branded)
 ├── docs/images/               # architecture diagram (png + html source)
@@ -502,6 +262,24 @@ npx tsx tests/01_Basics/218_normal_pw.ts
 npx tsx tests/01_Basics/217_multiple_context.ts
 npx tsx tests/04_Session_Storage/231_SessionStorage.ts   # saves user-session.json
 ```
+
+### Starting a new test
+
+`template/template.spec.ts` is the skeleton every lesson starts from. Copy it, change the title and the URL, and write the body where the `// Code` marker sits:
+
+```ts
+import { test, expect, Locator } from '@playwright/test';
+
+test('Verify the TestCase', async ({ page }) => {
+   await page.goto("https://app.thetestingacademy.com/playwright/multiple_element_filter");
+
+    // Code
+
+   await page.pause();
+});
+```
+
+`page.pause()` opens the Inspector so you can step through and pick locators while writing. Remove it before committing, it halts the run.
 
 Run a file against the custom reporter instead of the configured ones:
 
@@ -1003,7 +781,7 @@ export default defineConfig({
   forbidOnly: !!process.env.CI,    // fail CI if test.only is left behind
   retries: process.env.CI ? 2 : 0, // retry flaky tests on CI only
   workers: process.env.CI ? 1 : undefined,
-  reporter: [["line"], ["allure-playwright"]],   // several reporters at once
+  reporter: [["line"], ["allure-playwright"], ["./utils/CustomReporter.ts"]],
   use: {
     trace: 'on-first-retry',       // record a trace when a test retries
     headless: false                // show the browser locally
@@ -1056,7 +834,7 @@ This repo's config runs two reporters:
 reporter: [["line"], ["allure-playwright"]],
 ```
 
-The custom one lives in `utils/CustomReporter.ts` and is opt-in per run:
+All three are configured, so a normal `npx playwright test` produces terminal output, Allure results and the TTA HTML report in one pass. To run *only* the custom one:
 
 ```bash
 npx playwright test tests/05_Allure_Reporting/234_Media_Custom_Report.spec.ts \
@@ -1378,11 +1156,574 @@ test("navigate via the Make Appointment link", async ({ page }) => {
 | `<select>` | `combobox` | `dropdown` |
 | `<h1>` ... `<h6>` | `heading` | `title` |
 
-This is the top of the preference order from section 22. Reach for CSS (section 19) only when no role or label reaches the element, and for XPath (section 20) only when you need text matching or a parent walk.
+This is the top of the preference order from section 30. Reach for CSS (section 19) only when no role or label reaches the element, and for XPath (section 20) only when you need text matching or a parent walk.
 
 ---
 
-## 22. Locator cheat sheet
+## 22. Multiple elements: `all()`, `allInnerTexts()`, `allTextContents()`
+
+**Concept:** A locator that matches many elements can be unpacked three ways, `all()` hands back an array of locators you can act on, while `allInnerTexts()` and `allTextContents()` hand back plain strings in one round trip.
+
+**Why:** Reading thirteen link labels one `textContent()` at a time costs thirteen round trips to the browser; the plural getters do it in one.
+
+**Q&A - why use this?**
+- **Q: When do I reach for `all()`?** A: Only when you need to *do* something per element, click it, read an attribute, assert on it. If you just want the text, the plural getters are one call instead of N.
+- **Q: `allInnerTexts` or `allTextContents`?** A: `allTextContents` returns raw DOM text, so whitespace is exactly as authored, which makes it predictable to compare against. `allInnerTexts` returns what is rendered, collapsed and trimmed, with CSS `text-transform` applied and `<br>` turned into `\n`.
+- **Q: What's the gotcha?** A: None of the three wait. They snapshot whatever is in the DOM at that instant, so on a list that is still loading you silently get a partial answer.
+
+```mermaid
+flowchart TD
+    A["page.locator&#40;'a.list-group-item'&#41;"] --> B{What do you need?}
+    B -->|act on each element| C["all&#40;&#41; -> Locator[]"]
+    B -->|text the user sees| D["allInnerTexts&#40;&#41; -> string[]"]
+    B -->|raw DOM text| E["allTextContents&#40;&#41; -> string[]"]
+    C --> F[click, getAttribute, fill]
+    D --> G[collapsed, CSS applied]
+    E --> H[as authored, faster]
+```
+
+| | `all()` | `allInnerTexts()` | `allTextContents()` |
+|---|---|---|---|
+| Returns | `Locator[]` | `string[]` | `string[]` |
+| Can click / getAttribute | yes | no | no |
+| Whitespace | n/a | collapsed, trimmed | raw |
+| CSS `text-transform` | n/a | applied | ignored |
+| `<br>` | n/a | becomes `\n` | ignored |
+| Waits for elements | no | no | no |
+| Round trips | 1 + N per action | 1 | 1, cheapest |
+
+The same four elements through both getters make the difference concrete:
+
+```
+allTextContents : ["   Alpha\n     line-two   ", "Hidden Beta", "gamma", "DeltaEpsilon"]
+allInnerTexts   : ["Alpha line-two",             "Hidden Beta", "GAMMA", "Delta\nEpsilon"]
+```
+
+**tests/06_Multiple_Element_Filter/235_ME.spec.ts** - read the labels once, then act on a match:
+
+```ts
+const links = page.locator('a.list-group-item');
+const labels: string[] = await links.allInnerTexts();
+
+for (const label of labels) {
+    if (label === "Forgotten Password") {
+        await page.getByText(label).first().click();
+    }
+}
+```
+
+**tests/06_Multiple_Element_Filter/236_ME.spec.ts** - `all()`, because `getAttribute` needs real locators:
+
+```ts
+const links: Locator[] = await page.locator('a.list-group-item').all();
+for (const link of links) {
+    console.log(await link.getAttribute('href'));
+}
+```
+
+**Gate on the count first.** Because none of the three wait, a list that renders late gives a partial result with no error:
+
+```ts
+const links = page.locator('a.list-group-item');
+await expect(links).toHaveCount(13);      // this one retries
+const all = await links.all();            // now it is safe
+```
+
+And when you are asserting rather than logging, skip all three, `toHaveText` accepts an array and auto-retries:
+
+```ts
+await expect(links).toHaveText([/Login/, /Register/]);
+```
+
+---
+
+## 23. Web tables: iterating rows and columns
+
+**Concept:** An HTML table has no table API in Playwright, it is just nested locators, so you read it by locating rows (`tbody tr`) and then cells (`td`) within each row.
+
+**Why:** Table data is dynamic, you rarely know which row holds the record you want, so you scan rows until a cell matches and then read its neighbours.
+
+**Q&A - why use this?**
+- **Q: How do I skip the header row?** A: Prefer scoping to `tbody tr` and using `th` for headers. If the header sits inside `tbody`, start the loop at index 1 rather than 0.
+- **Q: Do I need XPath for tables?** A: Only for one thing, walking sideways. `following-sibling::td` gets the next cell from a matched cell, which CSS cannot express.
+- **Q: What's the gotcha?** A: Building selectors by string concatenation re-queries the DOM on every iteration and is slow and brittle. Chain locators off the row instead, and remember XPath indexes are 1-based while `nth()` is 0-based.
+
+```mermaid
+flowchart TD
+    A["page.locator&#40;'table tbody tr'&#41;"] --> B["count&#40;&#41; -> how many rows"]
+    B --> C[loop rows by index]
+    C --> D["rows.nth&#40;i&#41;.locator&#40;'td'&#41;"]
+    D --> E["allInnerTexts&#40;&#41; -> one row as string[]"]
+    D --> F{cell matches<br/>what you want?}
+    F -->|yes| G["following-sibling::td<br/>read the neighbour"]
+```
+
+**tests/07_WebTables/237_TestCase.spec.ts** - the readable approach, one call per row:
+
+```ts
+const rows = page.locator('table[summary="Sample Table"] tbody tr');
+const rowCount = await rows.count();
+
+for (let i = 0; i < rowCount - 1; i++) {
+    const rowData = await rows.nth(i).locator('td').allInnerTexts();
+    console.log(`Row ${i + 1}:`, rowData);
+}
+```
+
+**tests/07_WebTables/238_TestCase.spec.ts** - find a record, then read the cell beside it with `following-sibling`:
+
+```ts
+const rows = await page.locator("//table[@id='customers']/tbody/tr").count();
+const cols = await page.locator("//table[@id='customers']/tbody/tr[2]/td").count();
+
+for (let i = 2; i <= rows; i++) {            // XPath rows are 1-based, row 1 is the header
+    for (let j = 1; j <= cols; j++) {
+        const cell = `//table[@id='customers']/tbody/tr[${i}]/td[${j}]`;
+        const data = await page.locator(cell).innerText();
+
+        if (data.includes('Helen Bennett')) {
+            const country = await page.locator(`${cell}/following-sibling::td`).innerText();
+            console.log(`Helen Bennett is In - ${country}`);
+        }
+    }
+}
+```
+
+| Approach | Round trips | Readability |
+|---|---|---|
+| `rows.nth(i).locator('td').allInnerTexts()` | 1 per row | high |
+| String-built XPath per cell | 1 per **cell** | low |
+
+The nested-loop version is the one taught in class because it makes the row/column maths explicit, but in a real suite the first form is what you want. The whole scan also collapses into a single chained locator:
+
+```ts
+const country = await page.locator('#customers tbody tr')
+    .filter({ hasText: 'Helen Bennett' })
+    .locator('td')
+    .last()
+    .innerText();
+```
+
+---
+
+## 24. Filtering locators: `filter()`, `:has()`, `hasText`
+
+**Concept:** `.filter()` narrows a locator that matches many elements down to the ones containing given text or a given child, and the CSS pseudo-class `:has()` does the same thing inside the selector string.
+
+**Why:** The element you want to click is usually anonymous (a checkbox, an edit icon) and is only identifiable by the row or card it sits in, so you find the container by its text first, then reach inside it.
+
+**Q&A - why use this?**
+- **Q: When do I reach for it?** A: Any repeated structure, table rows, cards, list items, where the target has no unique attribute of its own but its neighbour has readable text.
+- **Q: `filter({ hasText })` or `:has()`?** A: They are equivalent in power. `filter()` chains and reads left to right, which is easier to debug; `:has()` keeps everything in one selector string, which is handy when you need it inside a single `locator()` call.
+- **Q: What's the gotcha?** A: Both match **substrings**, so `hasText: 'Rohan.Mehta'` also matches `Rohan.Mehta2`. Pass a `RegExp` with anchors, or use `:text-is()` instead of `:text()`, when you need an exact match.
+
+```mermaid
+flowchart TD
+    A["locator&#40;'tr'&#41;<br/>matches every row"] --> B{narrow by what?}
+    B -->|text inside| C["filter&#40;{ hasText: 'Luca' }&#41;"]
+    B -->|a child element| D["filter&#40;{ has: page.locator&#40;'.badge'&#41; }&#41;"]
+    B -->|inside the selector| E["locator&#40;\"tr:has&#40;td:text&#40;'Luca'&#41;&#41;\"&#41;"]
+    C & D & E --> F[one row]
+    F --> G["locator&#40;'input'&#41;.click&#40;&#41;<br/>reach inside it"]
+```
+
+**tests/07_WebTables/239_TestCase.spec.ts** - filter a link list by its label:
+
+```ts
+const forgottenPasswordLink = page.locator('a.list-group-item')
+    .filter({ hasText: 'Forgotten Password' });
+await forgottenPasswordLink.click();
+
+const privacyLink = page.locator('footer a').filter({ hasText: 'Privacy Policy' });
+await expect(privacyLink).toHaveAttribute('href', '#privacy-policy');
+```
+
+**tests/07_WebTables/240_TestCase.spec.ts** - find the row by its name cell, then tick the checkbox in it:
+
+```ts
+await page.locator("tr:has(td:text('Rohan.Mehta'))")
+    .locator('input')
+    .first()
+    .click();
+```
+
+The same row, written with `filter()` instead, and asserted rather than slept on:
+
+```ts
+const checkbox = page.locator('tr')
+    .filter({ hasText: 'Rohan.Mehta' })
+    .locator('input')
+    .first();
+
+await checkbox.check();
+await expect(checkbox).toBeChecked();    // retries, no waitForTimeout needed
+```
+
+| Need | Write |
+|---|---|
+| Row containing text | `.filter({ hasText: 'Luca' })` |
+| Row **not** containing text | `.filter({ hasNotText: 'Luca' })` |
+| Row containing an element | `.filter({ has: page.locator('.badge') })` |
+| Exact text, not substring | `.filter({ hasText: /^Luca Greco$/ })` |
+| All in one selector | `tr:has(td:text-is('Luca Greco'))` |
+
+---
+
+## 25. Paginated tables: searching across pages
+
+**Concept:** When a table splits across pages, the row you want may not be in the DOM at all, so you look on the current page, click next, and look again until you find it or run out of pages.
+
+**Why:** `filter()` only sees what is rendered. On a paginated table it silently returns zero matches for a row that exists on page four, and the test fails with a misleading "not found".
+
+**Q&A - why use this?**
+- **Q: How do I know when to stop?** A: When the next button is disabled. That is the reliable end-of-data signal, far better than hardcoding a page count that changes with the data.
+- **Q: Why `count()` rather than `isVisible()`?** A: `count()` returns 0 immediately for a missing row. `isVisible()` on an empty locator also returns false, but the count reads more clearly as "did this page have it".
+- **Q: What's the gotcha?** A: `while (true)` with no exit is an infinite loop if the next button never disables. Always throw when the button is disabled, and keep the throw *inside* the loop.
+
+```mermaid
+flowchart TD
+    A[Open the table] --> B["filter&#40;{ hasText: name }&#41;"]
+    B --> C{count &gt; 0?}
+    C -->|yes| D[Read the cells]
+    C -->|no| E{next disabled?}
+    E -->|yes| F[throw Row not found]
+    E -->|no| G[click next]
+    G --> B
+```
+
+**tests/07_WebTables/241_WebTable_Pagination.spec.ts** - the loop written inline:
+
+```ts
+let row;
+while (true) {
+    row = page.locator('#employees-tbody tr').filter({ hasText: 'Luca Greco' });
+    if (await row.count()) break;
+
+    const next = page.getByTestId('next-page');
+    if (await next.isDisabled()) throw new Error("Row not found!");
+    await next.click();
+}
+
+const email   = await row.locator('td[data-col="email"]').innerText();
+const country = await row.locator('td[data-col="country"]').innerText();
+```
+
+**tests/07_WebTables/242_WebTable_Pagination.spec.ts** - the same logic lifted into a helper, which is the version to keep:
+
+```ts
+async function findRowByName(page: Page, name: string): Promise<Locator> {
+    while (true) {
+        const row = page.locator('#employees-tbody tr').filter({ hasText: name });
+        if (await row.count()) return row;
+
+        const next = page.getByTestId('next-page');
+        if (await next.isDisabled()) throw new Error(`Row not found: ${name}`);
+        await next.click();
+    }
+}
+
+const row = await findRowByName(page, 'Luca Greco');
+const email = await row.locator('td[data-col="email"]').innerText();
+```
+
+The helper wins on three counts: the test reads as one line of intent, the error message names the row that was missing, and the next test that needs a row does not copy the loop again.
+
+Note `td[data-col="email"]` rather than `td:nth-child(3)`. When the app gives columns a data attribute, use it, a reordered column then changes nothing in the test.
+
+---
+
+## 26. Dropdowns: native `<select>` versus custom widgets
+
+**Concept:** A native `<select>` is one element the browser owns, driven with `selectOption()`. A "custom dropdown" is a div pretending to be one, so it needs a click to open and a second click on the option.
+
+**Why:** Reaching for `selectOption()` on a React or Vue dropdown fails with "element is not a select", and clicking blindly at a `<select>` opens an OS-level menu Playwright cannot see into.
+
+**Q&A - why use this?**
+- **Q: How do I tell them apart?** A: Inspect the tag. A real `<option>` inside a `<select>` takes `selectOption()`. Anything else, `div[role=option]` or a styled `li`, is custom and needs click-then-click.
+- **Q: What can `selectOption()` match on?** A: Visible label, `value`, or index, and it takes an array for multi-selects. `selectOption(['a','b'])` picks two at once.
+- **Q: What's the gotcha?** A: Custom menus render in a portal at the end of `<body>`, not inside the trigger, so scoping your option locator to the trigger finds nothing. Locate the option from `page`, not from the trigger.
+
+```mermaid
+flowchart TD
+    A[A dropdown] --> B{Is the tag<br/>a real select?}
+    B -->|yes| C["selectOption&#40;'Option 2'&#41;<br/>one call, no click"]
+    B -->|no, div or li| D["click the trigger"]
+    D --> E["getByRole&#40;'option', { name }&#41;<br/>click the option"]
+    E --> F{menu stays open?<br/>multi-select}
+    F -->|yes| G["keyboard.press&#40;'Escape'&#41;"]
+```
+
+**tests/08_Web_Select_Frames_Iframe/243_Select_TestCase.spec.ts** - the native case, one call:
+
+```ts
+await page.goto("https://the-internet.herokuapp.com/dropdown");
+await page.selectOption("#dropdown", "Option 2");
+```
+
+`selectOption` fires the `change` event itself, so the preceding `click()` is not needed. Three ways to name the same option:
+
+```ts
+await page.selectOption("#dropdown", "Option 2");            // by visible label
+await page.selectOption("#dropdown", { value: "2" });        // by value attribute
+await page.selectOption("#dropdown", { index: 2 });          // by position
+await page.selectOption("#langs", ["JS", "TS"]);             // multi-select
+```
+
+**tests/08_Web_Select_Frames_Iframe/244_CustomDropDown_TestCase.spec.ts** - click to open, then pick by role:
+
+```ts
+await page.getByTestId('lang-trigger').click();
+await page.getByRole("option", { name: "JavaScript" }).click();
+
+await page.getByTestId('experience-trigger').click();
+await page.getByText("Mid-level (4-6 years)", { exact: true }).click();
+```
+
+**tests/08_Web_Select_Frames_Iframe/245_AdvacneCustomDropDown_TestCase.spec.ts** - the react-select family, four behaviours in one file:
+
+```ts
+// multi-select: the menu stays open, so Escape closes it
+await page.locator("#rs-multi").click();
+await page.getByText("Pytest", { exact: true }).click();
+await page.getByText("JUnit",  { exact: true }).click();
+await page.keyboard.press("Escape");
+
+// async: options are fetched after you type, so assert the menu before clicking
+await page.locator("#rs-async").click();
+await page.getByTestId('rs-async-input').fill('de');
+await expect(page.getByTestId('rs-async-menu')).toContainText('Delhi');
+await page.getByRole('option', { name: "Delhi", exact: true }).click();
+```
+
+That `expect(...).toContainText(...)` before the click is the important line. It retries until the fetch lands, which is what makes an async dropdown testable instead of flaky.
+
+| Dropdown | Open it? | Pick with |
+|---|:---:|---|
+| Native `<select>` | no | `selectOption()` |
+| Custom (div / li) | yes | `getByRole('option')` then click |
+| Multi custom | yes | click each, then `Escape` |
+| Async custom | yes | `expect(menu).toContainText()` first |
+
+---
+
+## 27. Frames and iframes: `frameLocator()`
+
+**Concept:** An iframe is a separate document embedded in the page, so `page.locator()` cannot see inside it. `page.frameLocator('#id')` returns a handle scoped to that document, and you chain locators off it.
+
+**Why:** Payment forms, embedded editors and legacy widgets all live in iframes, and without `frameLocator` every selector inside them times out as "not found" even though you can see the element.
+
+**Q&A - why use this?**
+- **Q: When do I reach for it?** A: The moment a selector that looks obviously right times out. Check the DOM for an `<iframe>` or `<frame>` wrapping your target.
+- **Q: How do I reach a frame inside a frame?** A: Chain it. `page.frameLocator('#outer').frameLocator('#inner')`, each call scopes into one more level.
+- **Q: What's the gotcha?** A: `frameLocator()` is **not** async. It returns a handle immediately, so `await page.frameLocator(...)` does nothing useful and misleads the next reader. Drop the `await`.
+
+```mermaid
+flowchart TD
+    A[page] -->|"locator&#40;&#41; cannot cross"| B[iframe boundary]
+    A --> C["frameLocator&#40;'#pact1'&#41;"]
+    C --> D[frame 1 document]
+    D --> E["frameLocator&#40;'#pact2'&#41;"]
+    E --> F[frame 2 document]
+    F --> G["frameLocator&#40;'#pact3'&#41;"]
+    G --> H["locator&#40;'#glaf'&#41;.fill&#40;&#41;"]
+```
+
+**tests/09_Frame_Iframe/246_Iframe_TestCase.spec.ts** - fill a form living inside one frame:
+
+```ts
+await page.goto('https://app.thetestingacademy.com/playwright/frames/');
+const vehicleFrame: FrameLocator = page.frameLocator("#frame-one");
+
+await vehicleFrame.locator('#RESULT_TextField-1').fill('Hyundai i10');
+await vehicleFrame.locator('#RESULT_TextField-2').fill('Pramod Dutta');
+await vehicleFrame.getByText('Submit registration', { exact: true }).click();
+
+const output = await vehicleFrame.locator("#vehicle-output").innerText();
+```
+
+**tests/09_Frame_Iframe/247_Framework_TestCase.spec.ts** - enumerate the frames on a frameset page before working in one:
+
+```ts
+const allFrames: Locator[] = await page.locator('//frame').all();
+console.log('total number of frames: ' + allFrames.length);
+
+for (const frame of allFrames) {
+    console.log(await frame.getAttribute('name'), ': ', await frame.getAttribute('src'));
+}
+
+const sideFrame = page.frameLocator('[name="side"]');
+await sideFrame.getByTestId('side-link-registration').click();
+```
+
+**tests/09_Frame_Iframe/248_Nested_Iframe_TestCase.spec.ts** - three levels deep, each chained off the last:
+
+```ts
+const frame1 = page.frameLocator('#pact1');
+const frame2 = frame1.frameLocator('#pact2');
+const frame3 = frame2.frameLocator('#pact3');
+
+await frame1.locator('#inp_val').fill('Aishwarya Rai');
+await frame2.locator('#jex').fill('Wife');
+await frame3.locator('#glaf').fill('Playwright');
+```
+
+| Need | Use |
+|---|---|
+| Elements inside one iframe | `page.frameLocator('#id')` |
+| Nested iframes | chain `frameLocator()` per level |
+| List the frames on the page | `page.locator('//frame').all()` or `page.frames()` |
+| The frame's own URL or name | `frame.getAttribute('src' \| 'name')` |
+
+`frameLocator` is lazy in the same way an ordinary locator is: nothing is resolved until you act on it, so it auto-waits for the frame to exist. That is why there is no need to wait for the iframe to load first.
+
+---
+
+## 28. Keyboard, mouse, drag and drop, right click
+
+**Concept:** Beyond `click()` and `fill()`, Playwright exposes raw input devices: `page.keyboard` for key events, `page.mouse` for coordinate-level movement, and `locator.dragTo()` for the common drag case.
+
+**Why:** HTML5 drag-and-drop, canvas widgets and context menus do not respond to a plain click, they need real pointer sequences or key events the browser treats as genuine user input.
+
+**Q&A - why use this?**
+- **Q: `dragTo()` or the mouse?** A: Try `dragTo()` first, it is one line. Drop to `page.mouse` when the widget tracks intermediate movement, like a Kanban board that reorders as you hover.
+- **Q: Why does a manual drag need `steps`?** A: A single jump from source to target fires no `dragover` in between. `{ steps: 10 }` interpolates the movement so the drop zone actually registers it.
+- **Q: What's the gotcha?** A: `press('Shift+O')` already handles the modifier for you. Calling `keyboard.down('Shift')` without a matching `up()` leaves Shift stuck down for the rest of the test.
+
+```mermaid
+flowchart TD
+    A[Need an interaction] --> B{What kind?}
+    B -->|type or shortcut| C["keyboard.press&#40;'Shift+O'&#41;"]
+    B -->|simple drag| D["locator.dragTo&#40;target&#41;"]
+    B -->|drag with tracking| E["mouse.move -> down -><br/>move&#40;{steps}&#41; -> up"]
+    B -->|right click| F["click&#40;{ button: 'right' }&#41;"]
+    D -->|does not work?| E
+```
+
+**tests/10_Keyboard_Hover_Drag_Drop_Calender/249_TestCase.spec.ts** - key presses and modifiers:
+
+```ts
+await page.goto("https://keycode.info");
+
+await page.keyboard.press('A');
+await page.keyboard.press('ArrowLeft');
+await page.keyboard.press('Shift+O');     // modifier handled for you
+
+await page.keyboard.down('Shift');        // held down
+await page.keyboard.up('Shift');          // always pair it
+```
+
+**tests/10_Keyboard_Hover_Drag_Drop_Calender/251_Drag_Drop.spec.ts** - the one-liner that covers most cases:
+
+```ts
+await page.goto('https://the-internet.herokuapp.com/drag_and_drop');
+await page.locator('#column-a').dragTo(page.locator('#column-b'));
+```
+
+**tests/10_Keyboard_Hover_Drag_Drop_Calender/252_Advance_Drag_Drop.spec.ts** - a Kanban card, where the board needs the intermediate movement:
+
+```ts
+const source = page.locator('#card-write-spec');
+const target = page.locator('[data-status="in-progress"]');
+const sBox = (await source.boundingBox())!;
+const tBox = (await target.boundingBox())!;
+
+await page.mouse.move(sBox.x + sBox.width / 2, sBox.y + sBox.height / 2);
+await page.mouse.down();
+await page.mouse.move(tBox.x + tBox.width / 2, tBox.y + tBox.height / 2, { steps: 10 });
+await page.mouse.up();
+```
+
+**tests/10_Keyboard_Hover_Drag_Drop_Calender/253_Context_Drag_Drop.spec.ts** - right click, then read the menu that appears:
+
+```ts
+await page.locator('span.context-menu-one').first().click({ button: 'right' });
+
+const options: string[] = await page.locator('ul.context-menu-list span').allInnerTexts();
+console.log(options);
+
+await page.getByText('Copy', { exact: true }).first().click();
+```
+
+| Action | API |
+|---|---|
+| Type a key or shortcut | `keyboard.press('Control+A')` |
+| Type a whole string | `keyboard.type('hello')` or `fill()` |
+| Hold a modifier | `keyboard.down()` / `.up()` in pairs |
+| Simple drag | `locator.dragTo(target)` |
+| Drag with tracking | `mouse.move` / `down` / `move({steps})` / `up` |
+| Right click | `click({ button: 'right' })` |
+| Double click | `dblclick()` |
+| Hover | `hover()` |
+
+`boundingBox()` returns `null` for an element that is not rendered, which is why the examples use `!`. In a real test, assert the element is visible first rather than asserting the non-null.
+
+---
+
+## 29. JavaScript dialogs: `page.on` versus `page.once`
+
+**Concept:** `alert`, `confirm` and `prompt` open a native dialog that blocks the page. Playwright surfaces it as a `dialog` event you subscribe to, with `page.on` to handle every occurrence or `page.once` to handle only the first.
+
+**Why:** A dialog cannot be clicked like a normal element, it is browser chrome rather than DOM, so the only way to accept or dismiss it is through the event.
+
+**Q&A - why use this?**
+- **Q: `on` or `once`?** A: `once` when the action raises exactly one dialog, which is the usual case. `on` when several will fire, or when you are logging every dialog across a whole test.
+- **Q: What happens if I never subscribe?** A: Playwright auto-dismisses the dialog so your test does not hang. Register a listener and that safety net turns off, you now own accepting or dismissing it.
+- **Q: What's the gotcha?** A: Register the listener **before** the click that triggers the dialog. Attaching it afterwards is a race the dialog usually wins.
+
+```mermaid
+flowchart TD
+    A[Action fires a dialog] --> B{Listener registered?}
+    B -->|no| C[Playwright auto-dismisses]
+    B -->|"page.once"| D[Handler runs once,<br/>then removes itself]
+    B -->|"page.on"| E[Handler runs every time,<br/>stays registered]
+    D --> F["dialog.accept&#40;&#41; or .dismiss&#40;&#41;"]
+    E --> F
+    E -.->|forgot to accept| G[Page hangs until timeout]
+```
+
+| | `page.on('dialog', fn)` | `page.once('dialog', fn)` |
+|---|---|---|
+| Fires | every dialog | the first one only |
+| After firing | stays registered | removes itself |
+| Across 3 dialogs | runs 3 times | runs 1 time |
+| Remove it | `page.off('dialog', fn)` | automatic |
+| Use for | logging, repeated dialogs | one expected dialog |
+
+**tests/11_JS_Alerts/254_JS_Alerts.spec.ts** - the pattern, with the listener attached first:
+
+```ts
+test('JS Alert accept', async ({ page }) => {
+    await page.goto('https://the-internet.herokuapp.com/javascript_alerts');
+
+    let message = '';
+    page.once('dialog', async dialog => {
+        console.log('Alert type:', dialog.type());     // alert | confirm | prompt
+        message = dialog.message();
+        await dialog.accept();
+    });
+
+    await page.getByRole('button', { name: "Click for JS Alert" }).click();
+
+    expect(message).toBe('I am a JS Alert');
+    await expect(page.locator('#result')).toHaveText('You successfully clicked an alert');
+});
+```
+
+**Two rules worth repeating in class.** First, the listener goes before the click, not after, otherwise the dialog can open before anything is listening. Second, assert *outside* the handler. An `expect()` that throws inside the callback becomes an unhandled rejection rather than a test failure, so the test can pass while the assertion silently failed. Capture the message into a variable and assert on it after the click.
+
+The dialog object carries everything you need:
+
+```ts
+dialog.type()         // 'alert' | 'confirm' | 'prompt' | 'beforeunload'
+dialog.message()      // the text shown
+dialog.defaultValue() // prompt's prefilled value
+await dialog.accept('typed into the prompt');
+await dialog.dismiss();
+```
+
+---
+
+## 30. Locator cheat sheet
 
 ```ts
 page.getByRole('button', { name: 'Submit' })   // preferred, accessibility based
@@ -1398,11 +1739,11 @@ page.locator('li').nth(2)
 page.locator('table tr').first()
 ```
 
-Order of preference: role -> label -> placeholder -> text -> testid -> CSS/XPath. Section 21 covers the role end of that list, sections 19 and 20 cover CSS and XPath, for the cases where the user-facing locators cannot reach the element.
+Order of preference: role -> label -> placeholder -> text -> testid -> CSS/XPath. Section 24 covers narrowing a multi-match locator with `filter()`. Section 21 covers the role end of that list, sections 19 and 20 cover CSS and XPath, for the cases where the user-facing locators cannot reach the element.
 
 ---
 
-## 23. Common assertions
+## 31. Common assertions
 
 ```ts
 await expect(page).toHaveTitle(/Playwright/);
@@ -1419,7 +1760,7 @@ All `expect` calls auto-wait, so you rarely need `waitForTimeout`.
 
 ---
 
-## 24. Troubleshooting
+## 32. Troubleshooting
 
 | Problem | Fix |
 |---------|-----|
@@ -1432,7 +1773,7 @@ All `expect` calls auto-wait, so you rarely need `waitForTimeout`.
 
 ---
 
-## 25. Useful links
+## 33. Useful links
 
 - Playwright docs: https://playwright.dev/docs/intro
 - Codegen guide: https://playwright.dev/docs/codegen

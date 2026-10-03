@@ -25,10 +25,12 @@ test('Handling the Custome Drop-Down: ', async({page}) => {
 
     await page.locator('#experience-trigger').click();
     await page.getByRole('option', {name : 'Mid-level (4-6 years)'}).click();
+    // await page.getByText("Mid-level (4-6 years)", { exact : false }).click(); // it'l make partical match
     await expect(page.locator('#experience-trigger')).toContainText('Mid-level (4-6 years)');
 
     // Drop-Down 2
     await page.locator('#framework-trigger').click();
+  //await page.getByTestId("framework-trigger").click();
     await page.getByRole('option', { name: 'Vue'}).click();
     await expect(page.locator('#framework-trigger')).toContainText('Vue');
 
