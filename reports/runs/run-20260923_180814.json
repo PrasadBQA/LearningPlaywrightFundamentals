@@ -1,0 +1,8 @@
+{
+  "runId": "20260923_180814",
+  "tests": {
+    "chromium › 05_Allure_Reporting\\237_Custom_Report_TestWingify.spec.ts › go directly to dashboard3 — Test3": "passed",
+    "chromium › 05_Allure_Reporting\\237_Custom_Report_TestWingify.spec.ts › go directly to dashboard — Test1": "passed",
+    "chromium › 05_Allure_Reporting\\237_Custom_Report_TestWingify.spec.ts › go directly to dashboard2 — Test2": "passed"
+  }
+}

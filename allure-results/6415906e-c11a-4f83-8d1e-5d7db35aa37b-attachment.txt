@@ -1,0 +1,27 @@
+no of matched elements:   13
+locator('a.list-group-item').first()
+Promise { <pending> }
+locator('a.list-group-item').nth(1)
+Promise { <pending> }
+locator('a.list-group-item').nth(2)
+Promise { <pending> }
+locator('a.list-group-item').nth(3)
+Promise { <pending> }
+locator('a.list-group-item').nth(4)
+Promise { <pending> }
+locator('a.list-group-item').nth(5)
+Promise { <pending> }
+locator('a.list-group-item').nth(6)
+Promise { <pending> }
+locator('a.list-group-item').nth(7)
+Promise { <pending> }
+locator('a.list-group-item').nth(8)
+Promise { <pending> }
+locator('a.list-group-item').nth(9)
+Promise { <pending> }
+locator('a.list-group-item').nth(10)
+Promise { <pending> }
+locator('a.list-group-item').nth(11)
+Promise { <pending> }
+locator('a.list-group-item').nth(12)
+Promise { <pending> }

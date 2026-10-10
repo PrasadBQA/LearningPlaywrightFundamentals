@@ -1,0 +1,509 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: 07_WebTables\243_ME_Filters.spec.ts >> Using filter when there are multiple elements: 
+- Location: tests\07_WebTables\243_ME_Filters.spec.ts:4:5
+
+# Error details
+
+```
+Test timeout of 30000ms exceeded.
+```
+
+```
+Error: locator.innerText: Test timeout of 30000ms exceeded.
+Call log:
+  - waiting for locator('a.list-group-item').filter({ hasText: 'Forgot Password' })
+
+```
+
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - 'region "Announcement: Playwright Automation Mastery new batch" [ref=e2]':
+    - generic [ref=e3]: LIVE
+    - generic [ref=e5]: Playwright Automation Mastery
+    - generic [ref=e6]: New batch
+    - generic [ref=e7]: "|"
+    - generic [ref=e8]: Starts 28 Sept · Mon, Wed, Fri · 7 AM IST
+    - generic [ref=e9]: "|"
+    - emphasis [ref=e11]: UP TO 10% OFF
+    - generic [ref=e12]:
+      - text: Code
+      - code [ref=e13]: PROMODE
+    - link "Enroll" [ref=e14] [cursor=pointer]:
+      - /url: https://class.thetestingacademy.com/playwright-automation-mastery-course
+    - link "Chat on WhatsApp" [ref=e15] [cursor=pointer]:
+      - /url: https://sdet.live/WhatsApp
+      - text: ☎
+    - button "Dismiss banner" [ref=e16] [cursor=pointer]: ×
+  - generic [ref=e17]:
+    - complementary "Practice navigation" [ref=e18]:
+      - generic [ref=e19]:
+        - link "T The Testing Academy" [ref=e20] [cursor=pointer]:
+          - /url: ./index.html
+          - generic [ref=e21]: T
+          - strong [ref=e23]: The Testing Academy
+        - button "Toggle sidebar" [ref=e24] [cursor=pointer]
+      - generic [ref=e28]:
+        - searchbox / [ref=e32]
+        - generic [ref=e33]: /
+      - navigation [ref=e34]:
+        - generic [ref=e35]:
+          - button "JavaScript" [expanded] [ref=e36] [cursor=pointer]
+          - list [ref=e43]:
+            - listitem [ref=e44]:
+              - link "Overview" [ref=e45] [cursor=pointer]:
+                - /url: ./learn/javascript/index.html
+            - listitem [ref=e51]:
+              - link "Foundations (ch 1-4)" [ref=e52] [cursor=pointer]:
+                - /url: ./learn/javascript/foundations.html
+            - listitem [ref=e55]:
+              - generic [ref=e56]:
+                - generic [ref=e58]: Control flow (ch 5-7)
+                - generic [ref=e59]: soon
+            - listitem [ref=e60]:
+              - generic [ref=e61]:
+                - generic [ref=e63]: Data structures (ch 8-12)
+                - generic [ref=e64]: soon
+            - listitem [ref=e65]:
+              - generic [ref=e66]:
+                - generic [ref=e68]: Functions (ch 9 + 13)
+                - generic [ref=e69]: soon
+            - listitem [ref=e70]:
+              - generic [ref=e71]:
+                - generic [ref=e73]: Async (ch 14-15)
+                - generic [ref=e74]: soon
+            - listitem [ref=e75]:
+              - generic [ref=e76]:
+                - generic [ref=e78]: OOP (ch 16-17)
+                - generic [ref=e79]: soon
+            - listitem [ref=e80]:
+              - link "JS notes" [ref=e81] [cursor=pointer]:
+                - /url: ./notes.html
+        - generic [ref=e88]:
+          - button "TypeScript" [expanded] [ref=e89] [cursor=pointer]
+          - list [ref=e96]:
+            - listitem [ref=e97]:
+              - link "Overview" [ref=e98] [cursor=pointer]:
+                - /url: ./learn/typescript/index.html
+            - listitem [ref=e104]:
+              - link "Setup + basics soon" [ref=e105] [cursor=pointer]:
+                - /url: ./learn/typescript/setup.html
+                - generic [ref=e107]: Setup + basics
+                - generic [ref=e108]: soon
+            - listitem [ref=e109]:
+              - link "Types deep dive soon" [ref=e110] [cursor=pointer]:
+                - /url: ./learn/typescript/types.html
+                - generic [ref=e112]: Types deep dive
+                - generic [ref=e113]: soon
+            - listitem [ref=e114]:
+              - link "Interfaces soon" [ref=e115] [cursor=pointer]:
+                - /url: ./learn/typescript/interfaces.html
+                - generic [ref=e117]: Interfaces
+                - generic [ref=e118]: soon
+            - listitem [ref=e119]:
+              - link "Enums soon" [ref=e120] [cursor=pointer]:
+                - /url: ./learn/typescript/enums.html
+                - generic [ref=e122]: Enums
+                - generic [ref=e123]: soon
+            - listitem [ref=e124]:
+              - link "Generics soon" [ref=e125] [cursor=pointer]:
+                - /url: ./learn/typescript/generics.html
+                - generic [ref=e127]: Generics
+                - generic [ref=e128]: soon
+            - listitem [ref=e129]:
+              - link "Access modifiers + classes soon" [ref=e130] [cursor=pointer]:
+                - /url: ./learn/typescript/classes.html
+                - generic [ref=e132]: Access modifiers + classes
+                - generic [ref=e133]: soon
+        - generic [ref=e134]:
+          - button "Playwright fundamentals" [expanded] [ref=e135] [cursor=pointer]
+          - list [ref=e142]:
+            - listitem [ref=e143]:
+              - link "Overview" [ref=e144] [cursor=pointer]:
+                - /url: ./learn/playwright-fundamentals/overview.html
+            - listitem [ref=e150]:
+              - link "Architecture deep dive" [ref=e151] [cursor=pointer]:
+                - /url: ./playwright-e2e-architecture-blueprint.html
+            - listitem [ref=e154]:
+              - link "LangChain agent guide" [ref=e155] [cursor=pointer]:
+                - /url: ./playwright-agent-with-langchain.html
+            - listitem [ref=e158]:
+              - link "Playwright MCP tutorial" [ref=e159] [cursor=pointer]:
+                - /url: ./playwright-mcp.html
+            - listitem [ref=e162]:
+              - link "AI agents guide" [ref=e163] [cursor=pointer]:
+                - /url: ./playwright-ai-agents.html
+            - listitem [ref=e166]:
+              - link "Curriculum hub" [ref=e167] [cursor=pointer]:
+                - /url: ./learn/playwright-fundamentals/index.html
+            - listitem [ref=e170]:
+              - link "Multiple Element Filter" [ref=e171] [cursor=pointer]:
+                - /url: ./multiple_element_filter.html
+            - listitem [ref=e177]:
+              - link "Web Table Directory" [ref=e178] [cursor=pointer]:
+                - /url: ./webtable.html
+            - listitem [ref=e186]:
+              - link "QA Profile Form" [ref=e187] [cursor=pointer]:
+                - /url: ./tables/practice.html
+            - listitem [ref=e193]:
+              - link "Companies Table" [ref=e194] [cursor=pointer]:
+                - /url: ./tables/webtable.html
+            - listitem [ref=e200]:
+              - link "Tall Buildings Table" [ref=e201] [cursor=pointer]:
+                - /url: ./tables/webtable1.html
+            - listitem [ref=e206]:
+              - link "Custom Dropdowns" [ref=e207] [cursor=pointer]:
+                - /url: ./tables/dropdowns.html
+            - listitem [ref=e213]:
+              - link "Select Box Variants" [ref=e214] [cursor=pointer]:
+                - /url: ./tables/select-boxes.html
+            - listitem [ref=e220]:
+              - link "Sortable Admin Table" [ref=e221] [cursor=pointer]:
+                - /url: ./tables/sortable.html
+            - listitem [ref=e228]:
+              - link "Cricket Scorecard" [ref=e229] [cursor=pointer]:
+                - /url: ./tables/scorecard.html
+            - listitem [ref=e235]:
+              - link "Frames overview" [ref=e236] [cursor=pointer]:
+                - /url: ./frames/index.html
+            - listitem [ref=e241]:
+              - link "Multi-frame frameset" [ref=e242] [cursor=pointer]:
+                - /url: ./frames/multi-frames.html
+            - listitem [ref=e250]:
+              - link "Nested iframes" [ref=e251] [cursor=pointer]:
+                - /url: ./frames/nested-iframes.html
+            - listitem [ref=e258]:
+              - link "Courses frameset" [ref=e259] [cursor=pointer]:
+                - /url: ./frames/courses-frameset.html
+            - listitem [ref=e264]:
+              - link "SVG locators" [ref=e265] [cursor=pointer]:
+                - /url: ./widgets/svg.html
+            - listitem [ref=e272]:
+              - link "Shadow DOM" [ref=e273] [cursor=pointer]:
+                - /url: ./widgets/shadow-dom.html
+            - listitem [ref=e278]:
+              - link "Calendar / date picker" [ref=e279] [cursor=pointer]:
+                - /url: ./widgets/calendar.html
+            - listitem [ref=e284]:
+              - link "Drag and drop" [ref=e285] [cursor=pointer]:
+                - /url: ./widgets/dnd.html
+            - listitem [ref=e288]:
+              - link "Toasts and notifications" [ref=e289] [cursor=pointer]:
+                - /url: ./widgets/toasts.html
+            - listitem [ref=e292]:
+              - link "Native dialogs" [ref=e293] [cursor=pointer]:
+                - /url: ./widgets/dialogs.html
+            - listitem [ref=e298]:
+              - link "Hover menus" [ref=e299] [cursor=pointer]:
+                - /url: ./widgets/hover-menu.html
+            - listitem [ref=e304]:
+              - link "Right-click menu" [ref=e305] [cursor=pointer]:
+                - /url: ./widgets/context-menu.html
+            - listitem [ref=e310]:
+              - link "Keyboard navigation" [ref=e311] [cursor=pointer]:
+                - /url: ./widgets/keyboard-form.html
+            - listitem [ref=e317]:
+              - link "Windows and Tabs" [ref=e318] [cursor=pointer]:
+                - /url: ./widgets/windows-tabs.html
+            - listitem [ref=e321]:
+              - link "Upload and Download" [ref=e322] [cursor=pointer]:
+                - /url: ./widgets/upload-download.html
+            - listitem [ref=e325]:
+              - link "Scroll" [ref=e326] [cursor=pointer]:
+                - /url: ./widgets/scroll.html
+            - listitem [ref=e332]:
+              - link "Assertions (expect)" [ref=e333] [cursor=pointer]:
+                - /url: ./widgets/expect.html
+            - listitem [ref=e338]:
+              - link "Test modifiers, hooks, data" [ref=e339] [cursor=pointer]:
+                - /url: ./widgets/test-modifiers.html
+            - listitem [ref=e342]:
+              - link "Data-driven + POM" [ref=e343] [cursor=pointer]:
+                - /url: ./widgets/data-driven.html
+            - listitem [ref=e350]:
+              - link "Network interception" [ref=e351] [cursor=pointer]:
+                - /url: ./network/intercept.html
+            - listitem [ref=e356]:
+              - link "TTACart demo" [ref=e357] [cursor=pointer]:
+                - /url: ./ttacart/index.html
+            - listitem [ref=e364]:
+              - link "TTAStays booking" [ref=e365] [cursor=pointer]:
+                - /url: ./booking/index.html
+            - listitem [ref=e371]:
+              - link "Advance Playwright framework" [ref=e372] [cursor=pointer]:
+                - /url: ./advance-framework.html
+        - generic [ref=e378]:
+          - button "Playwright API Testing" [expanded] [ref=e379] [cursor=pointer]
+          - list [ref=e386]:
+            - listitem [ref=e387]:
+              - link "Overview" [ref=e388] [cursor=pointer]:
+                - /url: ./learn/playwright-api/index.html
+            - listitem [ref=e394]:
+              - link "CRUD basics" [ref=e395] [cursor=pointer]:
+                - /url: ./learn/playwright-api/crud.html
+            - listitem [ref=e398]:
+              - link "Auth + Schema" [ref=e399] [cursor=pointer]:
+                - /url: ./learn/playwright-api/auth-schema.html
+            - listitem [ref=e402]:
+              - link "Network monitoring" [ref=e403] [cursor=pointer]:
+                - /url: ./learn/playwright-api/network.html
+        - generic [ref=e406]:
+          - button "Playwright BDD (Cucumber)" [expanded] [ref=e407] [cursor=pointer]
+          - list [ref=e415]:
+            - listitem [ref=e416]:
+              - link "Overview" [ref=e417] [cursor=pointer]:
+                - /url: ./learn/playwright-cucumber/index.html
+            - listitem [ref=e423]:
+              - link "Setup + first run" [ref=e424] [cursor=pointer]:
+                - /url: ./learn/playwright-cucumber/setup.html
+            - listitem [ref=e427]:
+              - link "Data-driven" [ref=e428] [cursor=pointer]:
+                - /url: ./learn/playwright-cucumber/data-driven.html
+            - listitem [ref=e431]:
+              - link "CI + tags + env" [ref=e432] [cursor=pointer]:
+                - /url: ./learn/playwright-cucumber/ci-tags-env.html
+        - generic [ref=e435]:
+          - button "Playwright DevOps" [expanded] [ref=e436] [cursor=pointer]
+          - list [ref=e445]:
+            - listitem [ref=e446]:
+              - link "NPM Registry (JFrog/Nexus)" [ref=e447] [cursor=pointer]:
+                - /url: ./learn/playwright-registry/index.html
+            - listitem [ref=e450]:
+              - link "Docker setup" [ref=e451] [cursor=pointer]:
+                - /url: ./learn/playwright-docker/index.html
+            - listitem [ref=e454]:
+              - link "Sharding multi-container" [ref=e455] [cursor=pointer]:
+                - /url: ./learn/playwright-shard/index.html
+        - generic [ref=e458]:
+          - button "Playwright AI" [expanded] [ref=e459] [cursor=pointer]
+          - list [ref=e467]:
+            - listitem [ref=e468]:
+              - link "Curriculum hub" [ref=e469] [cursor=pointer]:
+                - /url: ./learn/playwright-ai-agents/index.html
+            - listitem [ref=e472]:
+              - link "Framework + AI (V2)" [ref=e473] [cursor=pointer]:
+                - /url: ./advance-framework-ai.html
+            - listitem [ref=e476]:
+              - link "TTACart + AI live demo" [ref=e477] [cursor=pointer]:
+                - /url: ./ttacart-ai/index.html
+            - listitem [ref=e480]:
+              - link "TTA AI Chat sandbox" [ref=e481] [cursor=pointer]:
+                - /url: ./ai-chat/index.html
+        - generic [ref=e484]:
+          - button "Playwright MCP" [expanded] [ref=e485] [cursor=pointer]
+          - list [ref=e494]:
+            - listitem [ref=e495]:
+              - link "Curriculum hub" [ref=e496] [cursor=pointer]:
+                - /url: ./learn/playwright-mcp/index.html
+        - generic [ref=e499]:
+          - button "Playwright CLI" [expanded] [ref=e500] [cursor=pointer]
+          - list [ref=e507]:
+            - listitem [ref=e508]:
+              - link "Curriculum hub" [ref=e509] [cursor=pointer]:
+                - /url: ./learn/playwright-cli/index.html
+            - listitem [ref=e512]:
+              - link "SnapLocator (Chrome ext)" [ref=e513] [cursor=pointer]:
+                - /url: ./snaplocator.html
+      - generic [ref=e519]:
+        - generic [ref=e520]: © The Testing Academy · 2026
+        - button "Toggle dark mode" [ref=e521] [cursor=pointer]
+    - generic [ref=e524]:
+      - banner [ref=e525]:
+        - button "Open sidebar" [ref=e526] [cursor=pointer]
+        - generic [ref=e529]:
+          - link "Practice" [ref=e530] [cursor=pointer]:
+            - /url: ./index.html
+          - strong [ref=e533]: Multiple Element Filter
+        - generic [ref=e534]:
+          - generic [ref=e535]: Practice
+          - button "Toggle dark mode" [ref=e536] [cursor=pointer]
+      - main [ref=e542]:
+        - region [ref=e543]:
+          - generic [ref=e544]:
+            - generic [ref=e545]: Locator practice · Login UI
+            - heading [level=1] [ref=e547]:
+              - text: Master
+              - emphasis [ref=e548]: multiple element filters
+              - text: on a real login UI
+            - paragraph [ref=e549]:
+              - text: This dummy login page is built for practising
+              - strong [ref=e550]: allInnerTexts()
+              - text: ","
+              - strong [ref=e551]: locator.all()
+              - text: ","
+              - strong [ref=e552]: "filter({ hasText })"
+              - text: ", and clicking a specific link from many similar links. Your target for the class exercise is the"
+              - strong [ref=e553]: Forgotten Password
+              - text: link in the account panel.
+            - generic [ref=e554]:
+              - generic [ref=e555]:
+                - strong [ref=e556]: "13"
+                - generic [ref=e557]:
+                  - code [ref=e558]: a.list-group-item
+                  - text: account links
+              - generic [ref=e559]:
+                - strong [ref=e560]: "16"
+                - generic [ref=e561]:
+                  - code [ref=e562]: footer a
+                  - text: footer links
+              - generic [ref=e563]:
+                - strong [ref=e564]: "1"
+                - generic [ref=e565]:
+                  - text: Exact
+                  - code [ref=e566]: Forgotten Password
+                  - text: target
+            - group [ref=e567]:
+              - generic "Playwright solution Try the practice on the right first — reveal the snippet only when you need a hint. Show solution" [ref=e568] [cursor=pointer]:
+                - generic [ref=e572]:
+                  - strong [ref=e573]: Playwright solution
+                  - generic [ref=e574]: Try the practice on the right first — reveal the snippet only when you need a hint.
+                - generic [ref=e575]: Show solution
+          - complementary [ref=e576]:
+            - region [ref=e577]:
+              - generic [ref=e578]:
+                - generic [ref=e579]:
+                  - heading "Student Login" [level=2] [ref=e580]
+                  - paragraph [ref=e581]: Practice page for Playwright selectors
+                - generic [ref=e582]: Secure Practice
+              - generic [ref=e583]:
+                - generic [ref=e584]:
+                  - generic [ref=e585]: Email Address
+                  - textbox "Email Address" [ref=e586]:
+                    - /placeholder: student@thetestingacademy.com
+                - generic [ref=e587]:
+                  - generic [ref=e588]: Password
+                  - textbox "Password" [ref=e589]:
+                    - /placeholder: Enter your password
+                - generic [ref=e590]:
+                  - generic [ref=e591]:
+                    - checkbox "Remember me" [ref=e592]
+                    - text: Remember me
+                  - link "Forget password?" [ref=e593] [cursor=pointer]:
+                    - /url: "#forgotten-password"
+                - button "Login to Practice Account" [ref=e594] [cursor=pointer]
+              - generic "Social login links" [ref=e595]:
+                - link "Continue with GitHub" [ref=e596] [cursor=pointer]:
+                  - /url: "#github-login"
+                - link "Continue with Google" [ref=e597] [cursor=pointer]:
+                  - /url: "#google-login"
+            - region [ref=e598]:
+              - heading "Account navigation" [level=3] [ref=e599]
+              - generic [ref=e600]:
+                - link "Login ›" [ref=e601] [cursor=pointer]:
+                  - /url: "#login"
+                - link "Register ›" [ref=e602] [cursor=pointer]:
+                  - /url: "#register"
+                - link "Forgotten Password ›" [ref=e603] [cursor=pointer]:
+                  - /url: "#forgotten-password"
+                - link "My Account ›" [ref=e604] [cursor=pointer]:
+                  - /url: "#my-account"
+                - link "Address Book ›" [ref=e605] [cursor=pointer]:
+                  - /url: "#address-book"
+                - link "Wish List ›" [ref=e606] [cursor=pointer]:
+                  - /url: "#wish-list"
+                - link "Order History ›" [ref=e607] [cursor=pointer]:
+                  - /url: "#order-history"
+                - link "Downloads ›" [ref=e608] [cursor=pointer]:
+                  - /url: "#downloads"
+                - link "Recurring Payments ›" [ref=e609] [cursor=pointer]:
+                  - /url: "#recurring-payments"
+                - link "Reward Points ›" [ref=e610] [cursor=pointer]:
+                  - /url: "#reward-points"
+                - link "Returns ›" [ref=e611] [cursor=pointer]:
+                  - /url: "#returns"
+                - link "Transactions ›" [ref=e612] [cursor=pointer]:
+                  - /url: "#transactions"
+                - link "Newsletter ›" [ref=e613] [cursor=pointer]:
+                  - /url: "#newsletter"
+        - region "Teaching cards" [ref=e614]:
+          - article [ref=e615]:
+            - heading "Use case 1 — collect text" [level=3] [ref=e616]
+            - paragraph [ref=e617]: Capture all right-panel link texts and assert the count before clicking the target link.
+            - code [ref=e618]: page.locator('a.list-group-item').allInnerTexts()
+          - article [ref=e619]:
+            - heading "Use case 2 — filter one link" [level=3] [ref=e620]
+            - paragraph [ref=e621]: Filter from many account links and click the one that has exact visible text.
+            - code [ref=e622]: "filter({ hasText: 'Forgotten Password' })"
+          - article [ref=e623]:
+            - heading "Use case 3 — footer links" [level=3] [ref=e624]
+            - paragraph [ref=e625]: Collect every footer anchor, print its text and href, then validate important legal links.
+            - code [ref=e626]: page.locator('footer a').all()
+        - generic [ref=e627]:
+          - generic [ref=e628]:
+            - heading "The Testing Academy" [level=3] [ref=e629]
+            - paragraph [ref=e630]:
+              - text: A public practice page from
+              - strong [ref=e631]: The Testing Academy
+              - text: for learning multiple element filtering, link collection, footer-link traversal, and targeted clicks.
+          - generic [ref=e632]:
+            - heading "Information" [level=4] [ref=e633]
+            - link "About Us" [ref=e634] [cursor=pointer]:
+              - /url: "#about-us"
+            - link "Delivery Information" [ref=e635] [cursor=pointer]:
+              - /url: "#delivery-information"
+            - link "Privacy Policy" [ref=e636] [cursor=pointer]:
+              - /url: "#privacy-policy"
+            - link "Terms & Conditions" [ref=e637] [cursor=pointer]:
+              - /url: "#terms-conditions"
+          - generic [ref=e638]:
+            - heading "Customer Service" [level=4] [ref=e639]
+            - link "Contact Us" [ref=e640] [cursor=pointer]:
+              - /url: "#contact-us"
+            - link "Returns" [ref=e641] [cursor=pointer]:
+              - /url: "#returns-footer"
+            - link "Site Map" [ref=e642] [cursor=pointer]:
+              - /url: "#site-map"
+            - link "Brands" [ref=e643] [cursor=pointer]:
+              - /url: "#brands"
+          - generic [ref=e644]:
+            - heading "Extras" [level=4] [ref=e645]
+            - link "Gift Certificates" [ref=e646] [cursor=pointer]:
+              - /url: "#gift-certificates"
+            - link "Affiliate" [ref=e647] [cursor=pointer]:
+              - /url: "#affiliate"
+            - link "Specials" [ref=e648] [cursor=pointer]:
+              - /url: "#specials"
+            - link "Support Center" [ref=e649] [cursor=pointer]:
+              - /url: "#support-center"
+          - generic [ref=e650]:
+            - heading "My Account" [level=4] [ref=e651]
+            - link "My Account" [ref=e652] [cursor=pointer]:
+              - /url: "#footer-my-account"
+            - link "Order History" [ref=e653] [cursor=pointer]:
+              - /url: "#footer-order-history"
+            - link "Wish List" [ref=e654] [cursor=pointer]:
+              - /url: "#footer-wish-list"
+            - link "Newsletter" [ref=e655] [cursor=pointer]:
+              - /url: "#footer-newsletter"
+  - status: Forgotten Password clicked — now assert the URL/hash or visible toast in Playwright.
+```
+
+# Test source
+
+```ts
+  1  | import {test, expect, Locator} from '@playwright/test';
+  2  | 
+  3  | 
+  4  | test('Using filter when there are multiple elements: ', async({page}) => {
+  5  | 
+  6  | 	await page.goto("https://app.thetestingacademy.com/playwright/multiple_element_filter");
+  7  |     const forgotPasswd = await page.locator('a.list-group-item')
+  8  |         .filter({ hasText : 'Forgot Password' });
+> 9  |     console.log(await forgotPasswd.innerText()); // Forgot Password
+     |                                    ^ Error: locator.innerText: Test timeout of 30000ms exceeded.
+  10 |     await forgotPasswd.click();
+  11 | 
+  12 |     
+  13 | 	await page.pause();
+  14 | 
+  15 | });
+  16 | 
+```

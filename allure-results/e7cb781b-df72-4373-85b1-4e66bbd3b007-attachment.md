@@ -1,0 +1,449 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: 09_Frame_Iframe\253_Nested_Frames.spec.ts >> Handling Nested Frames: 
+- Location: tests\09_Frame_Iframe\253_Nested_Frames.spec.ts:6:5
+
+# Error details
+
+```
+Test timeout of 30000ms exceeded.
+```
+
+```
+Error: locator.innerText: Test timeout of 30000ms exceeded.
+Call log:
+  - waiting for locator('#pact2').contentFrame().locator('//span[@class="badge"]').nth(2)
+
+```
+
+# Page snapshot
+
+```yaml
+- generic [ref=e1]:
+  - 'region "Announcement: Playwright Automation Mastery new batch" [ref=e2]':
+    - generic [ref=e3]: LIVE
+    - generic [ref=e5]: Playwright Automation Mastery
+    - generic [ref=e6]: New batch
+    - generic [ref=e7]: "|"
+    - generic [ref=e8]: Starts 28 Sept · Mon, Wed, Fri · 7 AM IST
+    - generic [ref=e9]: "|"
+    - emphasis [ref=e11]: UP TO 10% OFF
+    - generic [ref=e12]:
+      - text: Code
+      - code [ref=e13]: PROMODE
+    - link "Enroll" [ref=e14] [cursor=pointer]:
+      - /url: https://class.thetestingacademy.com/playwright-automation-mastery-course
+    - link "Chat on WhatsApp" [ref=e15] [cursor=pointer]:
+      - /url: https://sdet.live/WhatsApp
+      - text: ☎
+    - button "Dismiss banner" [ref=e16] [cursor=pointer]: ×
+  - generic [ref=e17]:
+    - complementary "Practice navigation" [ref=e18]:
+      - generic [ref=e19]:
+        - link "T The Testing Academy" [ref=e20] [cursor=pointer]:
+          - /url: ../index.html
+          - generic [ref=e21]: T
+          - strong [ref=e23]: The Testing Academy
+        - button "Toggle sidebar" [ref=e24] [cursor=pointer]
+      - generic [ref=e28]:
+        - searchbox / [ref=e32]
+        - generic [ref=e33]: /
+      - navigation [ref=e34]:
+        - generic [ref=e35]:
+          - button "JavaScript" [expanded] [ref=e36] [cursor=pointer]
+          - list [ref=e43]:
+            - listitem [ref=e44]:
+              - link "Overview" [ref=e45] [cursor=pointer]:
+                - /url: ../learn/javascript/index.html
+            - listitem [ref=e51]:
+              - link "Foundations (ch 1-4)" [ref=e52] [cursor=pointer]:
+                - /url: ../learn/javascript/foundations.html
+            - listitem [ref=e55]:
+              - generic [ref=e56]:
+                - generic [ref=e58]: Control flow (ch 5-7)
+                - generic [ref=e59]: soon
+            - listitem [ref=e60]:
+              - generic [ref=e61]:
+                - generic [ref=e63]: Data structures (ch 8-12)
+                - generic [ref=e64]: soon
+            - listitem [ref=e65]:
+              - generic [ref=e66]:
+                - generic [ref=e68]: Functions (ch 9 + 13)
+                - generic [ref=e69]: soon
+            - listitem [ref=e70]:
+              - generic [ref=e71]:
+                - generic [ref=e73]: Async (ch 14-15)
+                - generic [ref=e74]: soon
+            - listitem [ref=e75]:
+              - generic [ref=e76]:
+                - generic [ref=e78]: OOP (ch 16-17)
+                - generic [ref=e79]: soon
+            - listitem [ref=e80]:
+              - link "JS notes" [ref=e81] [cursor=pointer]:
+                - /url: ../notes.html
+        - generic [ref=e88]:
+          - button "TypeScript" [expanded] [ref=e89] [cursor=pointer]
+          - list [ref=e96]:
+            - listitem [ref=e97]:
+              - link "Overview" [ref=e98] [cursor=pointer]:
+                - /url: ../learn/typescript/index.html
+            - listitem [ref=e104]:
+              - link "Setup + basics soon" [ref=e105] [cursor=pointer]:
+                - /url: ../learn/typescript/setup.html
+                - generic [ref=e107]: Setup + basics
+                - generic [ref=e108]: soon
+            - listitem [ref=e109]:
+              - link "Types deep dive soon" [ref=e110] [cursor=pointer]:
+                - /url: ../learn/typescript/types.html
+                - generic [ref=e112]: Types deep dive
+                - generic [ref=e113]: soon
+            - listitem [ref=e114]:
+              - link "Interfaces soon" [ref=e115] [cursor=pointer]:
+                - /url: ../learn/typescript/interfaces.html
+                - generic [ref=e117]: Interfaces
+                - generic [ref=e118]: soon
+            - listitem [ref=e119]:
+              - link "Enums soon" [ref=e120] [cursor=pointer]:
+                - /url: ../learn/typescript/enums.html
+                - generic [ref=e122]: Enums
+                - generic [ref=e123]: soon
+            - listitem [ref=e124]:
+              - link "Generics soon" [ref=e125] [cursor=pointer]:
+                - /url: ../learn/typescript/generics.html
+                - generic [ref=e127]: Generics
+                - generic [ref=e128]: soon
+            - listitem [ref=e129]:
+              - link "Access modifiers + classes soon" [ref=e130] [cursor=pointer]:
+                - /url: ../learn/typescript/classes.html
+                - generic [ref=e132]: Access modifiers + classes
+                - generic [ref=e133]: soon
+        - generic [ref=e134]:
+          - button "Playwright fundamentals" [expanded] [ref=e135] [cursor=pointer]
+          - list [ref=e142]:
+            - listitem [ref=e143]:
+              - link "Overview" [ref=e144] [cursor=pointer]:
+                - /url: ../learn/playwright-fundamentals/overview.html
+            - listitem [ref=e150]:
+              - link "Architecture deep dive" [ref=e151] [cursor=pointer]:
+                - /url: ../playwright-e2e-architecture-blueprint.html
+            - listitem [ref=e154]:
+              - link "LangChain agent guide" [ref=e155] [cursor=pointer]:
+                - /url: ../playwright-agent-with-langchain.html
+            - listitem [ref=e158]:
+              - link "Playwright MCP tutorial" [ref=e159] [cursor=pointer]:
+                - /url: ../playwright-mcp.html
+            - listitem [ref=e162]:
+              - link "AI agents guide" [ref=e163] [cursor=pointer]:
+                - /url: ../playwright-ai-agents.html
+            - listitem [ref=e166]:
+              - link "Curriculum hub" [ref=e167] [cursor=pointer]:
+                - /url: ../learn/playwright-fundamentals/index.html
+            - listitem [ref=e170]:
+              - link "Multiple Element Filter" [ref=e171] [cursor=pointer]:
+                - /url: ../multiple_element_filter.html
+            - listitem [ref=e177]:
+              - link "Web Table Directory" [ref=e178] [cursor=pointer]:
+                - /url: ../webtable.html
+            - listitem [ref=e186]:
+              - link "QA Profile Form" [ref=e187] [cursor=pointer]:
+                - /url: ../tables/practice.html
+            - listitem [ref=e193]:
+              - link "Companies Table" [ref=e194] [cursor=pointer]:
+                - /url: ../tables/webtable.html
+            - listitem [ref=e200]:
+              - link "Tall Buildings Table" [ref=e201] [cursor=pointer]:
+                - /url: ../tables/webtable1.html
+            - listitem [ref=e206]:
+              - link "Custom Dropdowns" [ref=e207] [cursor=pointer]:
+                - /url: ../tables/dropdowns.html
+            - listitem [ref=e213]:
+              - link "Select Box Variants" [ref=e214] [cursor=pointer]:
+                - /url: ../tables/select-boxes.html
+            - listitem [ref=e220]:
+              - link "Sortable Admin Table" [ref=e221] [cursor=pointer]:
+                - /url: ../tables/sortable.html
+            - listitem [ref=e228]:
+              - link "Cricket Scorecard" [ref=e229] [cursor=pointer]:
+                - /url: ../tables/scorecard.html
+            - listitem [ref=e235]:
+              - link "Frames overview" [ref=e236] [cursor=pointer]:
+                - /url: ../frames/index.html
+            - listitem [ref=e241]:
+              - link "Multi-frame frameset" [ref=e242] [cursor=pointer]:
+                - /url: ../frames/multi-frames.html
+            - listitem [ref=e250]:
+              - link "Nested iframes" [ref=e251] [cursor=pointer]:
+                - /url: ../frames/nested-iframes.html
+            - listitem [ref=e258]:
+              - link "Courses frameset" [ref=e259] [cursor=pointer]:
+                - /url: ../frames/courses-frameset.html
+            - listitem [ref=e264]:
+              - link "SVG locators" [ref=e265] [cursor=pointer]:
+                - /url: ../widgets/svg.html
+            - listitem [ref=e272]:
+              - link "Shadow DOM" [ref=e273] [cursor=pointer]:
+                - /url: ../widgets/shadow-dom.html
+            - listitem [ref=e278]:
+              - link "Calendar / date picker" [ref=e279] [cursor=pointer]:
+                - /url: ../widgets/calendar.html
+            - listitem [ref=e284]:
+              - link "Drag and drop" [ref=e285] [cursor=pointer]:
+                - /url: ../widgets/dnd.html
+            - listitem [ref=e288]:
+              - link "Toasts and notifications" [ref=e289] [cursor=pointer]:
+                - /url: ../widgets/toasts.html
+            - listitem [ref=e292]:
+              - link "Native dialogs" [ref=e293] [cursor=pointer]:
+                - /url: ../widgets/dialogs.html
+            - listitem [ref=e298]:
+              - link "Hover menus" [ref=e299] [cursor=pointer]:
+                - /url: ../widgets/hover-menu.html
+            - listitem [ref=e304]:
+              - link "Right-click menu" [ref=e305] [cursor=pointer]:
+                - /url: ../widgets/context-menu.html
+            - listitem [ref=e310]:
+              - link "Keyboard navigation" [ref=e311] [cursor=pointer]:
+                - /url: ../widgets/keyboard-form.html
+            - listitem [ref=e317]:
+              - link "Windows and Tabs" [ref=e318] [cursor=pointer]:
+                - /url: ../widgets/windows-tabs.html
+            - listitem [ref=e321]:
+              - link "Upload and Download" [ref=e322] [cursor=pointer]:
+                - /url: ../widgets/upload-download.html
+            - listitem [ref=e325]:
+              - link "Scroll" [ref=e326] [cursor=pointer]:
+                - /url: ../widgets/scroll.html
+            - listitem [ref=e332]:
+              - link "Assertions (expect)" [ref=e333] [cursor=pointer]:
+                - /url: ../widgets/expect.html
+            - listitem [ref=e338]:
+              - link "Test modifiers, hooks, data" [ref=e339] [cursor=pointer]:
+                - /url: ../widgets/test-modifiers.html
+            - listitem [ref=e342]:
+              - link "Data-driven + POM" [ref=e343] [cursor=pointer]:
+                - /url: ../widgets/data-driven.html
+            - listitem [ref=e350]:
+              - link "Network interception" [ref=e351] [cursor=pointer]:
+                - /url: ../network/intercept.html
+            - listitem [ref=e356]:
+              - link "TTACart demo" [ref=e357] [cursor=pointer]:
+                - /url: ../ttacart/index.html
+            - listitem [ref=e364]:
+              - link "TTAStays booking" [ref=e365] [cursor=pointer]:
+                - /url: ../booking/index.html
+            - listitem [ref=e371]:
+              - link "Advance Playwright framework" [ref=e372] [cursor=pointer]:
+                - /url: ../advance-framework.html
+        - generic [ref=e378]:
+          - button "Playwright API Testing" [expanded] [ref=e379] [cursor=pointer]
+          - list [ref=e386]:
+            - listitem [ref=e387]:
+              - link "Overview" [ref=e388] [cursor=pointer]:
+                - /url: ../learn/playwright-api/index.html
+            - listitem [ref=e394]:
+              - link "CRUD basics" [ref=e395] [cursor=pointer]:
+                - /url: ../learn/playwright-api/crud.html
+            - listitem [ref=e398]:
+              - link "Auth + Schema" [ref=e399] [cursor=pointer]:
+                - /url: ../learn/playwright-api/auth-schema.html
+            - listitem [ref=e402]:
+              - link "Network monitoring" [ref=e403] [cursor=pointer]:
+                - /url: ../learn/playwright-api/network.html
+        - generic [ref=e406]:
+          - button "Playwright BDD (Cucumber)" [expanded] [ref=e407] [cursor=pointer]
+          - list [ref=e415]:
+            - listitem [ref=e416]:
+              - link "Overview" [ref=e417] [cursor=pointer]:
+                - /url: ../learn/playwright-cucumber/index.html
+            - listitem [ref=e423]:
+              - link "Setup + first run" [ref=e424] [cursor=pointer]:
+                - /url: ../learn/playwright-cucumber/setup.html
+            - listitem [ref=e427]:
+              - link "Data-driven" [ref=e428] [cursor=pointer]:
+                - /url: ../learn/playwright-cucumber/data-driven.html
+            - listitem [ref=e431]:
+              - link "CI + tags + env" [ref=e432] [cursor=pointer]:
+                - /url: ../learn/playwright-cucumber/ci-tags-env.html
+        - generic [ref=e435]:
+          - button "Playwright DevOps" [expanded] [ref=e436] [cursor=pointer]
+          - list [ref=e445]:
+            - listitem [ref=e446]:
+              - link "NPM Registry (JFrog/Nexus)" [ref=e447] [cursor=pointer]:
+                - /url: ../learn/playwright-registry/index.html
+            - listitem [ref=e450]:
+              - link "Docker setup" [ref=e451] [cursor=pointer]:
+                - /url: ../learn/playwright-docker/index.html
+            - listitem [ref=e454]:
+              - link "Sharding multi-container" [ref=e455] [cursor=pointer]:
+                - /url: ../learn/playwright-shard/index.html
+        - generic [ref=e458]:
+          - button "Playwright AI" [expanded] [ref=e459] [cursor=pointer]
+          - list [ref=e467]:
+            - listitem [ref=e468]:
+              - link "Curriculum hub" [ref=e469] [cursor=pointer]:
+                - /url: ../learn/playwright-ai-agents/index.html
+            - listitem [ref=e472]:
+              - link "Framework + AI (V2)" [ref=e473] [cursor=pointer]:
+                - /url: ../advance-framework-ai.html
+            - listitem [ref=e476]:
+              - link "TTACart + AI live demo" [ref=e477] [cursor=pointer]:
+                - /url: ../ttacart-ai/index.html
+            - listitem [ref=e480]:
+              - link "TTA AI Chat sandbox" [ref=e481] [cursor=pointer]:
+                - /url: ../ai-chat/index.html
+        - generic [ref=e484]:
+          - button "Playwright MCP" [expanded] [ref=e485] [cursor=pointer]
+          - list [ref=e494]:
+            - listitem [ref=e495]:
+              - link "Curriculum hub" [ref=e496] [cursor=pointer]:
+                - /url: ../learn/playwright-mcp/index.html
+        - generic [ref=e499]:
+          - button "Playwright CLI" [expanded] [ref=e500] [cursor=pointer]
+          - list [ref=e507]:
+            - listitem [ref=e508]:
+              - link "Curriculum hub" [ref=e509] [cursor=pointer]:
+                - /url: ../learn/playwright-cli/index.html
+            - listitem [ref=e512]:
+              - link "SnapLocator (Chrome ext)" [ref=e513] [cursor=pointer]:
+                - /url: ../snaplocator.html
+      - generic [ref=e519]:
+        - generic [ref=e520]: © The Testing Academy · 2026
+        - button "Toggle dark mode" [ref=e521] [cursor=pointer]
+    - generic [ref=e524]:
+      - banner [ref=e525]:
+        - button "Open sidebar" [ref=e526] [cursor=pointer]
+        - generic [ref=e529]:
+          - link "Practice" [ref=e530] [cursor=pointer]:
+            - /url: ../index.html
+          - generic [ref=e533]: Frames
+          - strong [ref=e536]: Nested iframes
+        - generic [ref=e537]:
+          - generic [ref=e538] [cursor=pointer]:
+            - checkbox "Locator markers" [checked] [ref=e539]
+            - generic [ref=e540]: Locator markers
+          - generic [ref=e541]: 3 levels deep
+          - button "Toggle dark mode" [ref=e542] [cursor=pointer]
+      - main [ref=e548]:
+        - region [ref=e549]:
+          - generic [ref=e550]: Frame practice · Nested iframes
+          - heading [level=1] [ref=e552]:
+            - text: Three
+            - emphasis [ref=e553]: deeply nested
+            - text: iframes
+          - paragraph [ref=e554]:
+            - code [ref=e555]: iframe#pact1
+            - text: contains
+            - code [ref=e556]: iframe#pact2
+            - text: ", which contains"
+            - code [ref=e557]: iframe#pact3
+            - text: — each level has its own input. Practise chained
+            - code [ref=e558]: page.frameLocator().frameLocator()...
+            - text: calls and assert the values at every depth.
+        - region "Nested iframes workspace" [ref=e559]:
+          - article [ref=e560]:
+            - heading [level=3] [ref=e561]:
+              - text: Outer page ·
+              - emphasis [ref=e562]: level 0
+            - iframe [active] [ref=e564]:
+              - generic [ref=f1e1]:
+                - generic [ref=f1e2]: Level 1 · iframe#pact1
+                - heading "Frame one" [level=4] [ref=f1e3]
+                - generic [ref=f1e4]: Tool used at this level
+                - textbox "Tool used at this level" [active] [ref=f1e5]:
+                  - /placeholder: e.g. Testing
+                  - text: Playwright
+                - paragraph [ref=f1e6]: "Locator: page.frameLocator('#pact1').locator('#inp_val')"
+                - iframe [ref=f1e8]:
+                  - generic [ref=f2e1]:
+                    - generic [ref=f2e2]: Level 2 · iframe#pact2
+                    - heading "Frame two" [level=4] [ref=f2e3]
+                    - generic [ref=f2e4]: Framework used at this level
+                    - textbox "Framework used at this level" [ref=f2e5]:
+                      - /placeholder: e.g. Selenium
+                    - paragraph [ref=f2e6]: "Locator: frame1.frameLocator('#pact2').locator('#jex')"
+                    - iframe [ref=f2e8]:
+                      - generic [ref=f3e1]:
+                        - generic [ref=f3e2]: Level 3 · iframe#pact3
+                        - heading "Frame three (deepest)" [level=4] [ref=f3e3]
+                        - generic [ref=f3e4]: Language used at this level
+                        - textbox "Language used at this level" [ref=f3e5]:
+                          - /placeholder: e.g. Playwright
+                        - paragraph [ref=f3e6]: "Locator: frame2.frameLocator('#pact3').locator('#glaf')"
+                        - generic [ref=f3e7]: Deepest frame · no nested children
+            - generic [ref=e565]:
+              - generic [ref=e566]:
+                - generic [ref=e567]: id
+                - text: =pact1 · pact2 · pact3
+              - generic [ref=e568]:
+                - generic [ref=e569]: input ids
+                - text: "=#inp_val · #jex · #glaf"
+              - generic [ref=e570]:
+                - generic [ref=e571]: outer header
+                - text: =h3
+            - paragraph [ref=e572]:
+              - text: "Selector chain:"
+              - strong [ref=e573]: page.frameLocator('#pact1').frameLocator('#pact2').frameLocator('#pact3').locator('#glaf')
+          - complementary [ref=e574]:
+            - generic [ref=e575]:
+              - heading "What students should practise" [level=3] [ref=e576]
+              - list [ref=e577]:
+                - listitem [ref=e578]: Chain three frameLocator calls to reach the deepest input.
+                - listitem [ref=e579]: Fill each level with a different value and assert the values back.
+                - listitem [ref=e580]:
+                  - text: Read the outer page's
+                  - code [ref=e581]: h3
+                  - text: and confirm it didn't change.
+                - listitem [ref=e582]: Refill all three inputs with new values and assert again.
+            - group [ref=e583]:
+              - generic "Playwright solution Chained frameLocator() across three levels. Show solution" [ref=e584] [cursor=pointer]:
+                - generic [ref=e588]:
+                  - strong [ref=e589]: Playwright solution
+                  - generic [ref=e590]:
+                    - text: Chained
+                    - code [ref=e591]: frameLocator()
+                    - text: across three levels.
+                - generic [ref=e592]: Show solution
+```
+
+# Test source
+
+```ts
+  1  | // Handling Nested Frames:
+  2  | // iframe 1 contains iframe 2, which contains iframe 3 — each level has its own input.
+  3  | 
+  4  | import { test, expect, Locator, FrameLocator } from '@playwright/test';
+  5  | 
+  6  | test('Handling Nested Frames: ', async ({page}) => {
+  7  | 
+  8  |     await page.goto("https://app.thetestingacademy.com/playwright/frames/nested-iframes", 
+  9  |         { waitUntil : 'domcontentloaded' });
+  10 | 
+  11 |     // Frame 1 - Outer frame
+  12 |     let f1OunterFrame : FrameLocator = page.frameLocator('#pact1');
+  13 |     const content1 = await f1OunterFrame.locator('h4').innerText();
+  14 |     console.log("Handling Frame 1: ", content1);
+  15 | 
+  16 |     await expect(f1OunterFrame.getByText("Frame one")).toContainText("Frame one");
+  17 |     await f1OunterFrame.locator('#inp_val').fill('Playwright');
+  18 |     
+  19 |     // Frame 2 - Inner frame
+  20 | 
+  21 |     let f2InnterFrame : FrameLocator = page.frameLocator('#pact2');
+> 22 |     const content2 = await f2InnterFrame.locator('//span[@class="badge"]').nth(2).innerText();
+     |                                                                                   ^ Error: locator.innerText: Test timeout of 30000ms exceeded.
+  23 |     console.log("Handling Frame 2: ", content2);
+  24 | 
+  25 |     await expect (f2InnterFrame.getByText('Frame two')).toContainText("Frame two");
+  26 |     await f2InnterFrame.locator('#jex').fill('Selenium');
+  27 | 
+  28 |     await page.pause();
+  29 | 
+  30 | });
+  31 | 
+```

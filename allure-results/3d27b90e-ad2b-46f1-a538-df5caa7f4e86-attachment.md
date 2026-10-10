@@ -1,0 +1,114 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: 11_JS_Alerts\260_JS_Alerts.spec.ts >> JS! Alerts:  >> JS Alert 3: 
+- Location: tests\11_JS_Alerts\260_JS_Alerts.spec.ts:47:9
+
+# Error details
+
+```
+Test timeout of 30000ms exceeded while running "beforeEach" hook.
+```
+
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - link "Fork me on GitHub":
+      - /url: https://github.com/tourdedave/the-internet
+      - img "Fork me on GitHub" [ref=e3] [cursor=pointer]
+    - generic [ref=e5]:
+      - heading "JavaScript Alerts" [level=3] [ref=e6]
+      - paragraph [ref=e7]: Here are some examples of different JavaScript alerts which can be troublesome for automation
+      - list [ref=e8]:
+        - listitem [ref=e9]:
+          - button "Click for JS Alert" [ref=e10]
+        - listitem [ref=e11]:
+          - button "Click for JS Confirm" [ref=e12]
+        - listitem [ref=e13]:
+          - button "Click for JS Prompt" [ref=e14]
+      - heading "Result:" [level=4] [ref=e15]
+      - paragraph
+  - generic [ref=e17]:
+    - separator [ref=e18]
+    - generic [ref=e19]:
+      - text: Powered by
+      - link "Elemental Selenium" [ref=e20] [cursor=pointer]:
+        - /url: http://elementalselenium.com/
+```
+
+# Test source
+
+```ts
+  1  | // JS Alerts - Alerts and Pop-UPs are not same. Both are different
+  2  | // Alerts - Simple Alert(ok), With Confirmation (cancle, ok), with input(cancle, Ok)
+  3  | // https://the-internet.herokuapp.com/javascript_alerts
+  4  | // Pop-UPs are different and HTML Modal is different
+  5  | 
+  6  | import {test, expect, Locator} from '@playwright/test';
+  7  | 
+  8  | 
+  9  | // You can declare a group of tests with a title. The title will be visible in the test report as a part of each test's title.
+  10 | test.describe('JS! Alerts: ', ()=> {
+  11 | 
+> 12 |     test.beforeEach(async ({page}) => {
+     |          ^ Test timeout of 30000ms exceeded while running "beforeEach" hook.
+  13 |         await page.goto("https://the-internet.herokuapp.com/javascript_alerts", { waitUntil: 'domcontentloaded' });
+  14 |     });
+  15 | 
+  16 |     test('JS Alert 1: ', async ({page}) => {
+  17 | 
+  18 |         
+  19 |         
+  20 |         page.once('dialog', async dialog => {
+  21 |             // First we have register the coming dialog(alert)
+  22 |             console.log('Alert Type: ', dialog.type());
+  23 |             console.log('Alert Message', dialog.message());
+  24 |             expect(dialog.message()).toBe('I am a JS Alert');
+  25 |             await dialog.accept(); // will accept the dialog, next will click the button
+  26 |         })
+  27 |         await page.getByRole('button', {name : 'Click for JS Alert'}).click();
+  28 | 
+  29 |        // await page.pause();
+  30 | });
+  31 | 
+  32 | 
+  33 | 
+  34 |     test('JS Alert 2: ', async ({page}) => {
+  35 | 
+  36 |         page.once('dialog', async dialog => {
+  37 |             console.log('Alert type', dialog.type());
+  38 |             console.log('Alert Message', dialog.message());
+  39 |             expect(dialog.message()).toBe('I am a JS Confirm');
+  40 |             await dialog.accept();
+  41 |         })
+  42 | 
+  43 |         await page.locator('button', {hasText: 'Click for JS Confirm'}).click();
+  44 |         await expect(page.locator('#result')).toHaveText('You clicked: Ok');
+  45 | });
+  46 | 
+  47 |     test('JS Alert 3: ', async ({page}) => {
+  48 | 
+  49 | 
+  50 |         const inputText = 'Hello from The Testing Academy';
+  51 | 
+  52 |         page.once('dialog', async dialog => {
+  53 |             expect(dialog.type()).toBe('prompt');
+  54 |             expect(dialog.defaultValue()).toBe('');
+  55 |             await dialog.accept(inputText);
+  56 |             //await dialog.dismiss();
+  57 |         });
+  58 | 
+  59 |         await page.locator('button', { hasText: 'Click for JS Prompt' }).click();
+  60 |         await expect(page.locator('#result')).toHaveText(`You entered: ${inputText}`);
+  61 | 
+  62 | });
+  63 | 
+  64 | });
+```

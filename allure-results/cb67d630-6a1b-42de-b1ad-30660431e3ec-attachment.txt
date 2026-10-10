@@ -1,0 +1,27 @@
+no of matched elements:   13
+locator('a.list-group-item').first()
+#login
+locator('a.list-group-item').nth(1)
+#register
+locator('a.list-group-item').nth(2)
+#forgotten-password
+locator('a.list-group-item').nth(3)
+#my-account
+locator('a.list-group-item').nth(4)
+#address-book
+locator('a.list-group-item').nth(5)
+#wish-list
+locator('a.list-group-item').nth(6)
+#order-history
+locator('a.list-group-item').nth(7)
+#downloads
+locator('a.list-group-item').nth(8)
+#recurring-payments
+locator('a.list-group-item').nth(9)
+#reward-points
+locator('a.list-group-item').nth(10)
+#returns
+locator('a.list-group-item').nth(11)
+#transactions
+locator('a.list-group-item').nth(12)
+#newsletter

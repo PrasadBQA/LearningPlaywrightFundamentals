@@ -1,0 +1,575 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: 07_WebTables\245_WTable_Pagination.spec.ts >> Web Table Pagination: 
+- Location: tests\07_WebTables\245_WTable_Pagination.spec.ts:4:5
+
+# Error details
+
+```
+Error: Could not find the name in the table
+```
+
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - 'region "Announcement: Playwright Automation Mastery new batch" [ref=e2]':
+    - generic [ref=e3]: LIVE
+    - generic [ref=e5]: Playwright Automation Mastery
+    - generic [ref=e6]: New batch
+    - generic [ref=e7]: "|"
+    - generic [ref=e8]: Starts 28 Sept · Mon, Wed, Fri · 7 AM IST
+    - generic [ref=e9]: "|"
+    - emphasis [ref=e11]: UP TO 10% OFF
+    - generic [ref=e12]:
+      - text: Code
+      - code [ref=e13]: PROMODE
+    - link "Enroll" [ref=e14] [cursor=pointer]:
+      - /url: https://class.thetestingacademy.com/playwright-automation-mastery-course
+    - link "Chat on WhatsApp" [ref=e15] [cursor=pointer]:
+      - /url: https://sdet.live/WhatsApp
+      - text: ☎
+    - button "Dismiss banner" [ref=e16] [cursor=pointer]: ×
+  - generic [ref=e17]:
+    - complementary "Practice navigation" [ref=e18]:
+      - generic [ref=e19]:
+        - link "T The Testing Academy" [ref=e20] [cursor=pointer]:
+          - /url: ../index.html
+          - generic [ref=e21]: T
+          - strong [ref=e23]: The Testing Academy
+        - button "Toggle sidebar" [ref=e24] [cursor=pointer]
+      - generic [ref=e28]:
+        - searchbox / [ref=e32]
+        - generic [ref=e33]: /
+      - navigation [ref=e34]:
+        - generic [ref=e35]:
+          - button "JavaScript" [expanded] [ref=e36] [cursor=pointer]
+          - list [ref=e43]:
+            - listitem [ref=e44]:
+              - link "Overview" [ref=e45] [cursor=pointer]:
+                - /url: ../learn/javascript/index.html
+            - listitem [ref=e51]:
+              - link "Foundations (ch 1-4)" [ref=e52] [cursor=pointer]:
+                - /url: ../learn/javascript/foundations.html
+            - listitem [ref=e55]:
+              - generic [ref=e56]:
+                - generic [ref=e58]: Control flow (ch 5-7)
+                - generic [ref=e59]: soon
+            - listitem [ref=e60]:
+              - generic [ref=e61]:
+                - generic [ref=e63]: Data structures (ch 8-12)
+                - generic [ref=e64]: soon
+            - listitem [ref=e65]:
+              - generic [ref=e66]:
+                - generic [ref=e68]: Functions (ch 9 + 13)
+                - generic [ref=e69]: soon
+            - listitem [ref=e70]:
+              - generic [ref=e71]:
+                - generic [ref=e73]: Async (ch 14-15)
+                - generic [ref=e74]: soon
+            - listitem [ref=e75]:
+              - generic [ref=e76]:
+                - generic [ref=e78]: OOP (ch 16-17)
+                - generic [ref=e79]: soon
+            - listitem [ref=e80]:
+              - link "JS notes" [ref=e81] [cursor=pointer]:
+                - /url: ../notes.html
+        - generic [ref=e88]:
+          - button "TypeScript" [expanded] [ref=e89] [cursor=pointer]
+          - list [ref=e96]:
+            - listitem [ref=e97]:
+              - link "Overview" [ref=e98] [cursor=pointer]:
+                - /url: ../learn/typescript/index.html
+            - listitem [ref=e104]:
+              - link "Setup + basics soon" [ref=e105] [cursor=pointer]:
+                - /url: ../learn/typescript/setup.html
+                - generic [ref=e107]: Setup + basics
+                - generic [ref=e108]: soon
+            - listitem [ref=e109]:
+              - link "Types deep dive soon" [ref=e110] [cursor=pointer]:
+                - /url: ../learn/typescript/types.html
+                - generic [ref=e112]: Types deep dive
+                - generic [ref=e113]: soon
+            - listitem [ref=e114]:
+              - link "Interfaces soon" [ref=e115] [cursor=pointer]:
+                - /url: ../learn/typescript/interfaces.html
+                - generic [ref=e117]: Interfaces
+                - generic [ref=e118]: soon
+            - listitem [ref=e119]:
+              - link "Enums soon" [ref=e120] [cursor=pointer]:
+                - /url: ../learn/typescript/enums.html
+                - generic [ref=e122]: Enums
+                - generic [ref=e123]: soon
+            - listitem [ref=e124]:
+              - link "Generics soon" [ref=e125] [cursor=pointer]:
+                - /url: ../learn/typescript/generics.html
+                - generic [ref=e127]: Generics
+                - generic [ref=e128]: soon
+            - listitem [ref=e129]:
+              - link "Access modifiers + classes soon" [ref=e130] [cursor=pointer]:
+                - /url: ../learn/typescript/classes.html
+                - generic [ref=e132]: Access modifiers + classes
+                - generic [ref=e133]: soon
+        - generic [ref=e134]:
+          - button "Playwright fundamentals" [expanded] [ref=e135] [cursor=pointer]
+          - list [ref=e142]:
+            - listitem [ref=e143]:
+              - link "Overview" [ref=e144] [cursor=pointer]:
+                - /url: ../learn/playwright-fundamentals/overview.html
+            - listitem [ref=e150]:
+              - link "Architecture deep dive" [ref=e151] [cursor=pointer]:
+                - /url: ../playwright-e2e-architecture-blueprint.html
+            - listitem [ref=e154]:
+              - link "LangChain agent guide" [ref=e155] [cursor=pointer]:
+                - /url: ../playwright-agent-with-langchain.html
+            - listitem [ref=e158]:
+              - link "Playwright MCP tutorial" [ref=e159] [cursor=pointer]:
+                - /url: ../playwright-mcp.html
+            - listitem [ref=e162]:
+              - link "AI agents guide" [ref=e163] [cursor=pointer]:
+                - /url: ../playwright-ai-agents.html
+            - listitem [ref=e166]:
+              - link "Curriculum hub" [ref=e167] [cursor=pointer]:
+                - /url: ../learn/playwright-fundamentals/index.html
+            - listitem [ref=e170]:
+              - link "Multiple Element Filter" [ref=e171] [cursor=pointer]:
+                - /url: ../multiple_element_filter.html
+            - listitem [ref=e177]:
+              - link "Web Table Directory" [ref=e178] [cursor=pointer]:
+                - /url: ../webtable.html
+            - listitem [ref=e186]:
+              - link "QA Profile Form" [ref=e187] [cursor=pointer]:
+                - /url: ../tables/practice.html
+            - listitem [ref=e193]:
+              - link "Companies Table" [ref=e194] [cursor=pointer]:
+                - /url: ../tables/webtable.html
+            - listitem [ref=e200]:
+              - link "Tall Buildings Table" [ref=e201] [cursor=pointer]:
+                - /url: ../tables/webtable1.html
+            - listitem [ref=e206]:
+              - link "Custom Dropdowns" [ref=e207] [cursor=pointer]:
+                - /url: ../tables/dropdowns.html
+            - listitem [ref=e213]:
+              - link "Select Box Variants" [ref=e214] [cursor=pointer]:
+                - /url: ../tables/select-boxes.html
+            - listitem [ref=e220]:
+              - link "Sortable Admin Table" [ref=e221] [cursor=pointer]:
+                - /url: ../tables/sortable.html
+            - listitem [ref=e228]:
+              - link "Cricket Scorecard" [ref=e229] [cursor=pointer]:
+                - /url: ../tables/scorecard.html
+            - listitem [ref=e235]:
+              - link "Frames overview" [ref=e236] [cursor=pointer]:
+                - /url: ../frames/index.html
+            - listitem [ref=e241]:
+              - link "Multi-frame frameset" [ref=e242] [cursor=pointer]:
+                - /url: ../frames/multi-frames.html
+            - listitem [ref=e250]:
+              - link "Nested iframes" [ref=e251] [cursor=pointer]:
+                - /url: ../frames/nested-iframes.html
+            - listitem [ref=e258]:
+              - link "Courses frameset" [ref=e259] [cursor=pointer]:
+                - /url: ../frames/courses-frameset.html
+            - listitem [ref=e264]:
+              - link "SVG locators" [ref=e265] [cursor=pointer]:
+                - /url: ../widgets/svg.html
+            - listitem [ref=e272]:
+              - link "Shadow DOM" [ref=e273] [cursor=pointer]:
+                - /url: ../widgets/shadow-dom.html
+            - listitem [ref=e278]:
+              - link "Calendar / date picker" [ref=e279] [cursor=pointer]:
+                - /url: ../widgets/calendar.html
+            - listitem [ref=e284]:
+              - link "Drag and drop" [ref=e285] [cursor=pointer]:
+                - /url: ../widgets/dnd.html
+            - listitem [ref=e288]:
+              - link "Toasts and notifications" [ref=e289] [cursor=pointer]:
+                - /url: ../widgets/toasts.html
+            - listitem [ref=e292]:
+              - link "Native dialogs" [ref=e293] [cursor=pointer]:
+                - /url: ../widgets/dialogs.html
+            - listitem [ref=e298]:
+              - link "Hover menus" [ref=e299] [cursor=pointer]:
+                - /url: ../widgets/hover-menu.html
+            - listitem [ref=e304]:
+              - link "Right-click menu" [ref=e305] [cursor=pointer]:
+                - /url: ../widgets/context-menu.html
+            - listitem [ref=e310]:
+              - link "Keyboard navigation" [ref=e311] [cursor=pointer]:
+                - /url: ../widgets/keyboard-form.html
+            - listitem [ref=e317]:
+              - link "Windows and Tabs" [ref=e318] [cursor=pointer]:
+                - /url: ../widgets/windows-tabs.html
+            - listitem [ref=e321]:
+              - link "Upload and Download" [ref=e322] [cursor=pointer]:
+                - /url: ../widgets/upload-download.html
+            - listitem [ref=e325]:
+              - link "Scroll" [ref=e326] [cursor=pointer]:
+                - /url: ../widgets/scroll.html
+            - listitem [ref=e332]:
+              - link "Assertions (expect)" [ref=e333] [cursor=pointer]:
+                - /url: ../widgets/expect.html
+            - listitem [ref=e338]:
+              - link "Test modifiers, hooks, data" [ref=e339] [cursor=pointer]:
+                - /url: ../widgets/test-modifiers.html
+            - listitem [ref=e342]:
+              - link "Data-driven + POM" [ref=e343] [cursor=pointer]:
+                - /url: ../widgets/data-driven.html
+            - listitem [ref=e350]:
+              - link "Network interception" [ref=e351] [cursor=pointer]:
+                - /url: ../network/intercept.html
+            - listitem [ref=e356]:
+              - link "TTACart demo" [ref=e357] [cursor=pointer]:
+                - /url: ../ttacart/index.html
+            - listitem [ref=e364]:
+              - link "TTAStays booking" [ref=e365] [cursor=pointer]:
+                - /url: ../booking/index.html
+            - listitem [ref=e371]:
+              - link "Advance Playwright framework" [ref=e372] [cursor=pointer]:
+                - /url: ../advance-framework.html
+        - generic [ref=e378]:
+          - button "Playwright API Testing" [expanded] [ref=e379] [cursor=pointer]
+          - list [ref=e386]:
+            - listitem [ref=e387]:
+              - link "Overview" [ref=e388] [cursor=pointer]:
+                - /url: ../learn/playwright-api/index.html
+            - listitem [ref=e394]:
+              - link "CRUD basics" [ref=e395] [cursor=pointer]:
+                - /url: ../learn/playwright-api/crud.html
+            - listitem [ref=e398]:
+              - link "Auth + Schema" [ref=e399] [cursor=pointer]:
+                - /url: ../learn/playwright-api/auth-schema.html
+            - listitem [ref=e402]:
+              - link "Network monitoring" [ref=e403] [cursor=pointer]:
+                - /url: ../learn/playwright-api/network.html
+        - generic [ref=e406]:
+          - button "Playwright BDD (Cucumber)" [expanded] [ref=e407] [cursor=pointer]
+          - list [ref=e415]:
+            - listitem [ref=e416]:
+              - link "Overview" [ref=e417] [cursor=pointer]:
+                - /url: ../learn/playwright-cucumber/index.html
+            - listitem [ref=e423]:
+              - link "Setup + first run" [ref=e424] [cursor=pointer]:
+                - /url: ../learn/playwright-cucumber/setup.html
+            - listitem [ref=e427]:
+              - link "Data-driven" [ref=e428] [cursor=pointer]:
+                - /url: ../learn/playwright-cucumber/data-driven.html
+            - listitem [ref=e431]:
+              - link "CI + tags + env" [ref=e432] [cursor=pointer]:
+                - /url: ../learn/playwright-cucumber/ci-tags-env.html
+        - generic [ref=e435]:
+          - button "Playwright DevOps" [expanded] [ref=e436] [cursor=pointer]
+          - list [ref=e445]:
+            - listitem [ref=e446]:
+              - link "NPM Registry (JFrog/Nexus)" [ref=e447] [cursor=pointer]:
+                - /url: ../learn/playwright-registry/index.html
+            - listitem [ref=e450]:
+              - link "Docker setup" [ref=e451] [cursor=pointer]:
+                - /url: ../learn/playwright-docker/index.html
+            - listitem [ref=e454]:
+              - link "Sharding multi-container" [ref=e455] [cursor=pointer]:
+                - /url: ../learn/playwright-shard/index.html
+        - generic [ref=e458]:
+          - button "Playwright AI" [expanded] [ref=e459] [cursor=pointer]
+          - list [ref=e467]:
+            - listitem [ref=e468]:
+              - link "Curriculum hub" [ref=e469] [cursor=pointer]:
+                - /url: ../learn/playwright-ai-agents/index.html
+            - listitem [ref=e472]:
+              - link "Framework + AI (V2)" [ref=e473] [cursor=pointer]:
+                - /url: ../advance-framework-ai.html
+            - listitem [ref=e476]:
+              - link "TTACart + AI live demo" [ref=e477] [cursor=pointer]:
+                - /url: ../ttacart-ai/index.html
+            - listitem [ref=e480]:
+              - link "TTA AI Chat sandbox" [ref=e481] [cursor=pointer]:
+                - /url: ../ai-chat/index.html
+        - generic [ref=e484]:
+          - button "Playwright MCP" [expanded] [ref=e485] [cursor=pointer]
+          - list [ref=e494]:
+            - listitem [ref=e495]:
+              - link "Curriculum hub" [ref=e496] [cursor=pointer]:
+                - /url: ../learn/playwright-mcp/index.html
+        - generic [ref=e499]:
+          - button "Playwright CLI" [expanded] [ref=e500] [cursor=pointer]
+          - list [ref=e507]:
+            - listitem [ref=e508]:
+              - link "Curriculum hub" [ref=e509] [cursor=pointer]:
+                - /url: ../learn/playwright-cli/index.html
+            - listitem [ref=e512]:
+              - link "SnapLocator (Chrome ext)" [ref=e513] [cursor=pointer]:
+                - /url: ../snaplocator.html
+      - generic [ref=e519]:
+        - generic [ref=e520]: © The Testing Academy · 2026
+        - button "Toggle dark mode" [ref=e521] [cursor=pointer]
+    - generic [ref=e524]:
+      - banner [ref=e525]:
+        - button "Open sidebar" [ref=e526] [cursor=pointer]
+        - generic [ref=e529]:
+          - link "Practice" [ref=e530] [cursor=pointer]:
+            - /url: ../index.html
+          - generic [ref=e533]: Tables
+          - strong [ref=e536]: Companies Table
+        - generic [ref=e537]:
+          - generic [ref=e538] [cursor=pointer]:
+            - checkbox "Locator markers" [checked] [ref=e539]
+            - generic [ref=e540]: Locator markers
+          - generic [ref=e541]: 3 columns · 6 rows
+          - button "Toggle dark mode" [ref=e542] [cursor=pointer]
+      - main [ref=e548]:
+        - region [ref=e549]:
+          - generic [ref=e550]: Web table practice · Simple grid
+          - heading [level=1] [ref=e552]:
+            - text: Companies
+            - emphasis [ref=e553]: web table
+            - text: practice
+          - paragraph [ref=e554]:
+            - text: A minimal three-column table —
+            - strong [ref=e555]: Company
+            - text: ","
+            - strong [ref=e556]: Contact
+            - text: ","
+            - strong [ref=e557]: Country
+            - text: . Perfect for practising row counting, cell text reads, and locator strategies before scaling up to bigger tables.
+        - region "Companies table workspace" [ref=e558]:
+          - generic [ref=e559]:
+            - generic [ref=e560]:
+              - heading "Companies directory" [level=2] [ref=e561]
+              - generic [ref=e562]: Static data
+            - generic [ref=e564]:
+              - generic [ref=e565]:
+                - generic [ref=e566]: id
+                - text: =companies-table
+              - generic [ref=e567]:
+                - generic [ref=e568]: data-testid
+                - text: =companies-table
+              - generic [ref=e569]:
+                - generic [ref=e570]: row
+                - text: data-testid=row-google · row-meta · row-microsoft · …
+              - generic [ref=e571]:
+                - generic [ref=e572]: cell
+                - text: data-col=company / contact / country
+            - table "Companies table" [ref=e574]:
+              - rowgroup [ref=e575]:
+                - row [ref=e576]:
+                  - columnheader "Company" [ref=e577]
+                  - columnheader "Contact" [ref=e578]
+                  - columnheader "Country" [ref=e579]
+              - rowgroup [ref=e580]:
+                - row [ref=e581]:
+                  - cell "Google" [ref=e582]
+                  - cell "Maria Anders" [ref=e583]
+                  - cell "Germany" [ref=e584]
+                - row [ref=e585]:
+                  - cell "Meta" [ref=e586]
+                  - cell "Francisco Chang" [ref=e587]
+                  - cell "Mexico" [ref=e588]
+                - row [ref=e589]:
+                  - cell "Microsoft" [ref=e590]
+                  - cell "Roland Mendel" [ref=e591]
+                  - cell "Austria" [ref=e592]
+                - row [ref=e593]:
+                  - cell "Island Trading" [ref=e594]
+                  - cell "Helen Bennett" [ref=e595]
+                  - cell "UK" [ref=e596]
+                - row [ref=e597]:
+                  - cell "Adobe" [ref=e598]
+                  - cell "Yoshi Tannamuri" [ref=e599]
+                  - cell "Canada" [ref=e600]
+                - row [ref=e601]:
+                  - cell "Amazon" [ref=e602]
+                  - cell "Giovanni Rovelli" [ref=e603]
+                  - cell "Italy" [ref=e604]
+          - complementary [ref=e605]:
+            - generic [ref=e606]:
+              - heading "What students should practise" [level=3] [ref=e607]
+              - list [ref=e608]:
+                - listitem [ref=e609]:
+                  - text: "Count rows:"
+                  - code [ref=e610]: page.locator('table tbody tr').count()
+                  - text: .
+                - listitem [ref=e611]:
+                  - text: Read all Country cells and assert they include
+                  - code [ref=e612]: Italy
+                  - text: .
+                - listitem [ref=e613]:
+                  - text: Find the row whose Company is
+                  - code [ref=e614]: Adobe
+                  - text: and read its Contact.
+                - listitem [ref=e615]:
+                  - text: Pull the entire row text using
+                  - code [ref=e616]: allInnerTexts()
+                  - text: .
+            - group [ref=e617]:
+              - generic "Playwright solution Reveal once you have written your own attempts. Show solution" [ref=e618] [cursor=pointer]:
+                - generic [ref=e622]:
+                  - strong [ref=e623]: Playwright solution
+                  - generic [ref=e624]: Reveal once you have written your own attempts.
+                - generic [ref=e625]: Show solution
+        - region [ref=e626]:
+          - generic [ref=e627]: Bonus · Paginated web table
+          - heading [level=1] [ref=e629]:
+            - text: Employees
+            - emphasis [ref=e630]: web table
+            - text: with pagination
+          - paragraph [ref=e631]:
+            - text: 24 employee rows split across 3 pages (8 per page). Practise the classic interview pattern —
+            - strong [ref=e632]: walk every page, collect every row
+            - text: "— in two styles:"
+            - emphasis [ref=e633]: known page count
+            - text: (for loop) and
+            - emphasis [ref=e634]: unknown page count
+            - text: (while next-button enabled).
+        - region "Paginated employees table workspace" [ref=e635]:
+          - generic [ref=e636]:
+            - generic [ref=e637]:
+              - heading "Employees directory" [level=2] [ref=e638]
+              - generic [ref=e639]: 24 rows · 3 pages
+            - generic [ref=e641]:
+              - generic [ref=e642]:
+                - generic [ref=e643]: id
+                - text: =employees-table
+              - generic [ref=e644]:
+                - generic [ref=e645]: data-testid
+                - text: "=employees-table · employees-tbody · page-summary · pager-nav · prev-page · next-page · page-{n}"
+              - generic [ref=e646]:
+                - generic [ref=e647]: row
+                - text: "data-testid=emp-row-{id} · cell data-col=id/name/role/email/country"
+            - table "Employees table" [ref=e649]:
+              - rowgroup [ref=e650]:
+                - row [ref=e651]:
+                  - columnheader "#" [ref=e652]
+                  - columnheader "Name" [ref=e653]
+                  - columnheader "Role" [ref=e654]
+                  - columnheader "Email" [ref=e655]
+                  - columnheader "Country" [ref=e656]
+              - rowgroup [ref=e657]:
+                - row [ref=e658]:
+                  - cell "1" [ref=e659]
+                  - cell "Aarav Sharma" [ref=e660]
+                  - cell "SDET" [ref=e661]
+                  - cell "aarav@tta.dev" [ref=e662]
+                  - cell "India" [ref=e663]
+                - row [ref=e664]:
+                  - cell "2" [ref=e665]
+                  - cell "Priya Kapoor" [ref=e666]
+                  - cell "QA Engineer" [ref=e667]
+                  - cell "priya@tta.dev" [ref=e668]
+                  - cell "India" [ref=e669]
+                - row [ref=e670]:
+                  - cell "3" [ref=e671]
+                  - cell "Rohan Mehta" [ref=e672]
+                  - cell "Manual QA" [ref=e673]
+                  - cell "rohan@tta.dev" [ref=e674]
+                  - cell "India" [ref=e675]
+                - row [ref=e676]:
+                  - cell "4" [ref=e677]
+                  - cell "Ananya Iyer" [ref=e678]
+                  - cell "Automation Lead" [ref=e679]
+                  - cell "ananya@tta.dev" [ref=e680]
+                  - cell "India" [ref=e681]
+                - row [ref=e682]:
+                  - cell "5" [ref=e683]
+                  - cell "Liam Walker" [ref=e684]
+                  - cell "SDET" [ref=e685]
+                  - cell "liam@tta.dev" [ref=e686]
+                  - cell "UK" [ref=e687]
+                - row [ref=e688]:
+                  - cell "6" [ref=e689]
+                  - cell "Olivia Brown" [ref=e690]
+                  - cell "QA Engineer" [ref=e691]
+                  - cell "olivia@tta.dev" [ref=e692]
+                  - cell "UK" [ref=e693]
+                - row [ref=e694]:
+                  - cell "7" [ref=e695]
+                  - cell "Noah Wright" [ref=e696]
+                  - cell "DevOps" [ref=e697]
+                  - cell "noah@tta.dev" [ref=e698]
+                  - cell "UK" [ref=e699]
+                - row [ref=e700]:
+                  - cell "8" [ref=e701]
+                  - cell "Emma Clark" [ref=e702]
+                  - cell "Performance QA" [ref=e703]
+                  - cell "emma@tta.dev" [ref=e704]
+                  - cell "UK" [ref=e705]
+            - generic [ref=e706]:
+              - generic [ref=e707]: Showing 1–8 of 24
+              - generic [ref=e708]:
+                - button "‹ Prev" [disabled] [ref=e709]
+                - button "1" [ref=e710] [cursor=pointer]
+                - button "2" [ref=e711] [cursor=pointer]
+                - button "3" [ref=e712] [cursor=pointer]
+                - button "Next ›" [ref=e713] [cursor=pointer]
+          - complementary [ref=e714]:
+            - generic [ref=e715]:
+              - heading "What students should practise" [level=3] [ref=e716]
+              - list [ref=e717]:
+                - listitem [ref=e718]:
+                  - text: Walk every page with a
+                  - code [ref=e719]: for
+                  - text: loop (page count = 3 is known).
+                - listitem [ref=e720]:
+                  - text: Walk every page with a
+                  - code [ref=e721]: while
+                  - text: loop until
+                  - code [ref=e722]: next-page
+                  - text: is disabled (page count unknown).
+                - listitem [ref=e723]: Collect every row's Email across all pages into one array.
+                - listitem [ref=e724]:
+                  - text: Find the row whose Name is
+                  - code [ref=e725]: Priya Kapoor
+                  - text: — first detect which page, then read the row.
+                - listitem [ref=e726]:
+                  - text: Assert
+                  - code [ref=e727]: page-summary
+                  - text: text after clicking
+                  - code [ref=e728]: page-2
+                  - text: .
+            - group [ref=e729]:
+              - 'generic "Playwright solution Two patterns: known page count + unknown. Show solution" [ref=e730] [cursor=pointer]':
+                - generic [ref=e734]:
+                  - strong [ref=e735]: Playwright solution
+                  - generic [ref=e736]: "Two patterns: known page count + unknown."
+                - generic [ref=e737]: Show solution
+```
+
+# Test source
+
+```ts
+  1  | import {test, expect, Locator} from '@playwright/test';
+  2  | 
+  3  | // Find "Luca Greco" in the table and get his email address. Then, assert that the email address is "
+  4  | test('Web Table Pagination: ', async({page}) => {
+  5  | 
+  6  | 	await page.goto("https://app.thetestingacademy.com/playwright/tables/webtable");
+  7  | 
+  8  | 	const name: string = "Luca Greco";
+  9  | 	let row; // we don't know the row number, so we will find it dynamically
+  10 | 	await page.pause();
+  11 | 
+  12 | 	while(true) {
+  13 | 		row =  page.locator('#employees-table tr').filter({ hasText: name});
+  14 | 
+  15 | 		if(await row.count() > 0) 
+  16 | 			{
+  17 | 				break;
+  18 | 			}
+  19 | 		
+  20 | 		const nextbutton =  page.getByTestId('next-page'); // Get the next page button
+  21 | 		if(await nextbutton.isDisabled) {				   // If the next button is disabled, we have reached the last page and the name was not found
+> 22 | 			throw new Error('Could not find the name in the table');
+     |          ^ Error: Could not find the name in the table
+  23 | 		}
+  24 | 		await nextbutton.click();						   // Click the next button to go to the next page
+  25 | 	}
+  26 | 
+  27 | 	await page.waitForTimeout(5000);
+  28 | });
+  29 | 
+```

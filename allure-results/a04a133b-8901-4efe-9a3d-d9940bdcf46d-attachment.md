@@ -1,0 +1,72 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: 07_WebTables\247_ORHRM_Exercise.spec.ts >> ORHRM Exercise: 
+- Location: tests\07_WebTables\247_ORHRM_Exercise.spec.ts:7:5
+
+# Error details
+
+```
+Error: locator.count: Target page, context or browser has been closed
+```
+
+# Test source
+
+```ts
+  1  | import {test, expect} from '@playwright/test';
+  2  | 
+  3  | // Navigate to ORHRM application and login with valid credentials. 
+  4  | // Then, navigate to the PIM module and click on add employee. 
+  5  | // Fill in the details and click on save. Then, verify that the employee is added successfully.
+  6  | // Search for an employee by name and delete the employee. Then, verify that the employee is deleted successfully.
+  7  | test('ORHRM Exercise: ', async({page}) => {
+  8  | 
+  9  |     // Navigate to ORHRM application and login with valid credentials.
+  10 |     await page.goto("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
+  11 |     await page.getByPlaceholder('Username').fill('Admin');
+  12 |     await page.getByRole('textbox', { name: 'Password' } ).fill('admin123');
+  13 |     await page.getByRole('button', { name: 'Login' }).click();
+  14 | 
+  15 |     // Then, navigate to the PIM module and click on add employee.
+  16 |     await page.getByRole('link', { name: 'PIM' }).click();
+  17 |     await page.getByRole('button', { name: ' Add '}).click();
+  18 | 
+  19 |     // Fill in the details and click on save and click on the PIM module again to see the added employee in the list.
+  20 |     await page.getByRole('textbox', { name: 'First Name'}).fill('ZKill');
+  21 |     await page.getByRole('textbox', { name: 'Middle Name'}).fill('Bill');
+  22 |     await page.getByRole('textbox', { name: 'Last Name'}).fill('QA');
+  23 |     await page.getByRole('button', { name: ' Save '}).click();
+  24 |     await page.getByRole('link', { name: 'PIM' }).click();
+  25 | 
+  26 |     // Then, verify that the employee is added successfully.
+  27 |     // div[role="row"]
+  28 |     const name: string = "ZKill";
+  29 |     let row;
+  30 |     while(true) 
+  31 |         {
+  32 |         row =  page.locator('div[role="row"]').filter({ hasText: name});
+> 33 |         if(await row.count() > 0)
+     |                      ^ Error: locator.count: Target page, context or browser has been closed
+  34 |         {
+  35 |             // //button[@class="oxd-icon-button oxd-table-cell-action-space"]
+  36 |             row.locator('//button[@class="oxd-icon-button oxd-table-cell-action-space"]').last().click(); // click on the delete button of the last row 
+  37 |             break;
+  38 |         }
+  39 |         // button[class="oxd-pagination-page-item oxd-pagination-page-item--previous-next"]
+  40 |         const nextbutton =  page.locator('button[class="oxd-pagination-page-item oxd-pagination-page-item--previous-next"]'); // Get the next page button 
+  41 |         if(await nextbutton.isDisabled())           
+  42 |             {	        
+  43 |              // If the next button is disabled, we have reached the last page and the name was not found
+  44 |             throw new Error('Could not find the name in the table');
+  45 |             }
+  46 |             //await nextbutton.click();	// Click the next button to go to the next page
+  47 | 
+  48 |         }
+  49 |     await page.pause();
+  50 | });
+```

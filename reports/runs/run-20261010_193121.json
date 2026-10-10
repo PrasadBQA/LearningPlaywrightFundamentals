@@ -1,0 +1,6 @@
+{
+  "runId": "20261010_193121",
+  "tests": {
+    "chromium › 10_Keyboard_Hover_Drag_Drop_Calendar\\259_Context_Drag_Drop.spec.ts › Verify Drag and Drop in Kanban Board": "passed"
+  }
+}

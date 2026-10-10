@@ -1,0 +1,8 @@
+{
+  "vehicleName": "Hyundai verna",
+  "ownerName": "XYZ",
+  "regNumber": "AP 39 PB 9619",
+  "vehicleType": "Sedan",
+  "year": "2025",
+  "notes": "offers a great balance of comfort, performance, and style."
+}

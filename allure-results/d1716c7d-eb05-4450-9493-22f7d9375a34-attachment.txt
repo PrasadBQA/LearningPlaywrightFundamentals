@@ -1,0 +1,2 @@
+Alert Type:  alert
+Alert Message I am a JS Alert

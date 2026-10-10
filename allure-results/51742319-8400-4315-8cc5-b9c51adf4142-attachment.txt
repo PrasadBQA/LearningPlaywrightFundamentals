@@ -1,0 +1,5 @@
+Row 0:  [ 'Burj Khalifa\tUAE\tDubai\t829m\t2010\t1\t\n' ]
+Row 1:  [ 'Clock Tower Hotel\tSaudi Arabia\tMecca\t601m\t2012\t2\t\n' ]
+Row 2:  [ 'Taipei 101\tTaiwan\tTaipei\t509m\t2004\t3\t\n' ]
+Row 3:  [ 'Financial Center\tChina\tShanghai\t492m\t2008\t4\t\n' ]
+Row 4:  []

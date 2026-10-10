@@ -1,0 +1,160 @@
+//tbody[@id='employee-body']/tr[1]/td[1]
+
+//tbody[@id='employee-body']/tr[1]/td[2]
+Aarav.Sharma
+//tbody[@id='employee-body']/tr[1]/td[3]
+AS
+Aarav Sharma
+EMP-1001
+//tbody[@id='employee-body']/tr[1]/td[4]
+QA Engineer
+//tbody[@id='employee-body']/tr[1]/td[5]
+Pune
+//tbody[@id='employee-body']/tr[1]/td[6]
+Cloud QA
+//tbody[@id='employee-body']/tr[1]/td[7]
+ACTIVE
+//tbody[@id='employee-body']/tr[2]/td[1]
+
+//tbody[@id='employee-body']/tr[2]/td[2]
+Priya.Nair
+//tbody[@id='employee-body']/tr[2]/td[3]
+PN
+Priya Nair
+EMP-1002
+//tbody[@id='employee-body']/tr[2]/td[4]
+Product Owner
+//tbody[@id='employee-body']/tr[2]/td[5]
+Bengaluru
+//tbody[@id='employee-body']/tr[2]/td[6]
+Nimbus CRM
+//tbody[@id='employee-body']/tr[2]/td[7]
+ACTIVE
+//tbody[@id='employee-body']/tr[3]/td[1]
+
+//tbody[@id='employee-body']/tr[3]/td[2]
+Rohan.Mehta
+//tbody[@id='employee-body']/tr[3]/td[3]
+RM
+Rohan Mehta
+EMP-1003
+//tbody[@id='employee-body']/tr[3]/td[4]
+SDET Lead
+//tbody[@id='employee-body']/tr[3]/td[5]
+Gurugram
+//tbody[@id='employee-body']/tr[3]/td[6]
+Cloud QA
+//tbody[@id='employee-body']/tr[3]/td[7]
+ACTIVE
+//tbody[@id='employee-body']/tr[4]/td[1]
+
+//tbody[@id='employee-body']/tr[4]/td[2]
+Ananya.Iyer
+//tbody[@id='employee-body']/tr[4]/td[3]
+AI
+Ananya Iyer
+EMP-1004
+//tbody[@id='employee-body']/tr[4]/td[4]
+DevOps Engineer
+//tbody[@id='employee-body']/tr[4]/td[5]
+Chennai
+//tbody[@id='employee-body']/tr[4]/td[6]
+Monsoon Pay
+//tbody[@id='employee-body']/tr[4]/td[7]
+ONBOARDING
+//tbody[@id='employee-body']/tr[5]/td[1]
+
+//tbody[@id='employee-body']/tr[5]/td[2]
+Kabir.Khan
+//tbody[@id='employee-body']/tr[5]/td[3]
+KK
+Kabir Khan
+EMP-1005
+//tbody[@id='employee-body']/tr[5]/td[4]
+Security Tester
+//tbody[@id='employee-body']/tr[5]/td[5]
+Hyderabad
+//tbody[@id='employee-body']/tr[5]/td[6]
+Udaan Risk
+//tbody[@id='employee-body']/tr[5]/td[7]
+ACTIVE
+//tbody[@id='employee-body']/tr[6]/td[1]
+
+//tbody[@id='employee-body']/tr[6]/td[2]
+Meera.Rao
+//tbody[@id='employee-body']/tr[6]/td[3]
+MR
+Meera Rao
+EMP-1006
+//tbody[@id='employee-body']/tr[6]/td[4]
+Automation Architect
+//tbody[@id='employee-body']/tr[6]/td[5]
+Mumbai
+//tbody[@id='employee-body']/tr[6]/td[6]
+Cloud Ledger
+//tbody[@id='employee-body']/tr[6]/td[7]
+ACTIVE
+//tbody[@id='employee-body']/tr[7]/td[1]
+
+//tbody[@id='employee-body']/tr[7]/td[2]
+Vikram.Singh
+//tbody[@id='employee-body']/tr[7]/td[3]
+VS
+Vikram Singh
+EMP-1007
+//tbody[@id='employee-body']/tr[7]/td[4]
+API Tester
+//tbody[@id='employee-body']/tr[7]/td[5]
+Noida
+//tbody[@id='employee-body']/tr[7]/td[6]
+Bharat API
+//tbody[@id='employee-body']/tr[7]/td[7]
+INACTIVE
+//tbody[@id='employee-body']/tr[8]/td[1]
+
+//tbody[@id='employee-body']/tr[8]/td[2]
+Neha.Patel
+//tbody[@id='employee-body']/tr[8]/td[3]
+NP
+Neha Patel
+EMP-1008
+//tbody[@id='employee-body']/tr[8]/td[4]
+Release Manager
+//tbody[@id='employee-body']/tr[8]/td[5]
+Ahmedabad
+//tbody[@id='employee-body']/tr[8]/td[6]
+Cloud Retail
+//tbody[@id='employee-body']/tr[8]/td[7]
+ACTIVE
+//tbody[@id='employee-body']/tr[9]/td[1]
+
+//tbody[@id='employee-body']/tr[9]/td[2]
+Ishaan.Das
+//tbody[@id='employee-body']/tr[9]/td[3]
+ID
+Ishaan Das
+EMP-1009
+//tbody[@id='employee-body']/tr[9]/td[4]
+Manual Tester
+//tbody[@id='employee-body']/tr[9]/td[5]
+Kolkata
+//tbody[@id='employee-body']/tr[9]/td[6]
+Cloud QA
+//tbody[@id='employee-body']/tr[9]/td[7]
+ONBOARDING
+//tbody[@id='employee-body']/tr[10]/td[1]
+
+//tbody[@id='employee-body']/tr[10]/td[2]
+Sana.Qureshi
+//tbody[@id='employee-body']/tr[10]/td[3]
+SQ
+Sana Qureshi
+EMP-1010
+//tbody[@id='employee-body']/tr[10]/td[4]
+Data QA Analyst
+//tbody[@id='employee-body']/tr[10]/td[5]
+Indore
+//tbody[@id='employee-body']/tr[10]/td[6]
+Sky Analytics
+//tbody[@id='employee-body']/tr[10]/td[7]
+ACTIVE

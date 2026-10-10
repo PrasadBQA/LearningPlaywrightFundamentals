@@ -1,0 +1,1 @@
+[ 'Edit\n⌘E\nCut\n⌘X\nCopy\n⌘C\nPaste\n⌘V\nDelete\n⌫\nQuit\n⌘Q' ]

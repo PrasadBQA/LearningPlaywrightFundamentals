@@ -1,0 +1,3 @@
+Row 0:  [ 'Saudi Arabia', 'Mecca', '601m', '2012', '2', '\n' ]
+Row 1:  [ 'Taiwan', 'Taipei', '509m', '2004', '3', '\n' ]
+Row 2:  [ 'China', 'Shanghai', '492m', '2008', '4', '\n' ]

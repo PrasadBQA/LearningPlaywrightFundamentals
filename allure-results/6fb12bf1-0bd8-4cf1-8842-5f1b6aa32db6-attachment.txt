@@ -1,0 +1,66 @@
+no of matched elements:   13
+locator('a.list-group-item').first()
+---------------:
+Promise { <pending> }
+---------------:
+#login
+locator('a.list-group-item').nth(1)
+---------------:
+Promise { <pending> }
+---------------:
+#register
+locator('a.list-group-item').nth(2)
+---------------:
+Promise { <pending> }
+---------------:
+#forgotten-password
+locator('a.list-group-item').nth(3)
+---------------:
+Promise { <pending> }
+---------------:
+#my-account
+locator('a.list-group-item').nth(4)
+---------------:
+Promise { <pending> }
+---------------:
+#address-book
+locator('a.list-group-item').nth(5)
+---------------:
+Promise { <pending> }
+---------------:
+#wish-list
+locator('a.list-group-item').nth(6)
+---------------:
+Promise { <pending> }
+---------------:
+#order-history
+locator('a.list-group-item').nth(7)
+---------------:
+Promise { <pending> }
+---------------:
+#downloads
+locator('a.list-group-item').nth(8)
+---------------:
+Promise { <pending> }
+---------------:
+#recurring-payments
+locator('a.list-group-item').nth(9)
+---------------:
+Promise { <pending> }
+---------------:
+#reward-points
+locator('a.list-group-item').nth(10)
+---------------:
+Promise { <pending> }
+---------------:
+#returns
+locator('a.list-group-item').nth(11)
+---------------:
+Promise { <pending> }
+---------------:
+#transactions
+locator('a.list-group-item').nth(12)
+---------------:
+Promise { <pending> }
+---------------:
+#newsletter

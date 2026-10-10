@@ -1,0 +1,79 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: 07_WebTables\247_ORHRM_Exercise.spec.ts >> ORHRM Exercise: 
+- Location: tests\07_WebTables\247_ORHRM_Exercise.spec.ts:7:5
+
+# Error details
+
+```
+Error: Could not find the name in the table
+```
+
+# Test source
+
+```ts
+  1  | import {test, expect} from '@playwright/test';
+  2  | 
+  3  | // Navigate to ORHRM application and login with valid credentials. 
+  4  | // Then, navigate to the PIM module and click on add employee. 
+  5  | // Fill in the details and click on save. Then, verify that the employee is added successfully.
+  6  | // Search for an employee by name and delete the employee. Then, verify that the employee is deleted successfully.
+  7  | test('ORHRM Exercise: ', async({page}) => {
+  8  | 
+  9  |     // Navigate to ORHRM application and login with valid credentials.
+  10 |     await page.goto("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
+  11 |     await page.getByPlaceholder('Username').fill('Admin');
+  12 |     await page.getByRole('textbox', { name: 'Password' } ).fill('admin123');
+  13 |     await page.getByRole('button', { name: 'Login' }).click();
+  14 | 
+  15 |     // Then, navigate to the PIM module and click on add employee.
+  16 |     await page.getByRole('link', { name: 'PIM' }).click();
+  17 |     await page.getByRole('button', { name: ' Add '}).click();
+  18 | 
+  19 |     // Fill in the details and click on save and click on the PIM module again to see the added employee in the list.
+  20 |     await page.getByRole('textbox', { name: 'First Name'}).fill('SKill');
+  21 |     await page.getByRole('textbox', { name: 'Middle Name'}).fill('Bill');
+  22 |     await page.getByRole('textbox', { name: 'Last Name'}).fill('QA');
+  23 |     // await page.getByTestId('employeeId').fill('1496');
+  24 |     await page.getByRole('button', { name: ' Save '}).click();
+  25 |     await expect(page.getByText('Successfully Saved')).toBeVisible();
+  26 |     await expect(page).toHaveURL(/viewPersonalDetails/);
+  27 |     await expect(page.getByRole('heading', { name: 'SKill QA' })).toBeVisible();
+  28 |     await page.getByRole('link', { name: 'PIM' }).click();
+  29 | 
+  30 |     // Then, verify that the employee is added successfully.
+  31 |     // div[role="row"]
+  32 |     const name: string = "SKill Bill QA";
+  33 |     let row;
+  34 |     while(true) 
+  35 |         {
+  36 |         row =  page.locator('div[role="row"]').filter({ hasText: name});
+  37 |         if(await row.count() > 0)
+  38 |         {
+  39 |             // //button[@class="oxd-icon-button oxd-table-cell-action-space"]
+  40 |             row.locator('//button[@class="oxd-icon-button oxd-table-cell-action-space"]').last().click(); // click on the delete button of the last row 
+  41 |             break;
+  42 |         }
+  43 |         // Pagination is only checked when the employee is not on the current page.
+  44 |         // This selector can match Previous if Next is absent on the last page.
+  45 |         // button[class="oxd-pagination-page-item oxd-pagination-page-item--previous-next"]
+  46 |         const nextbutton =  page.locator('button:has(i.bi-chevron-right)'); // Get the next page button
+  47 |         if(await nextbutton.isVisible() === false)   
+  48 |             // On last page, next button is disappearing in the UI
+  49 |             // when the next button is not visible, we have reached the last page and the name was not found
+  50 |             {	             
+  51 |              // If the next button is disabled, we have reached the last page and the name was not found
+> 52 |             throw new Error('Could not find the name in the table');
+     |                   ^ Error: Could not find the name in the table
+  53 |             }
+  54 |             await nextbutton.click();	// Click the next button to go to the next page
+  55 | 
+  56 |         }
+  57 | });
+```

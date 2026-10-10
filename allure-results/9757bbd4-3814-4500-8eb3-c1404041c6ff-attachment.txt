@@ -1,0 +1,8 @@
+[ 'Clock Tower Hotel\tSaudi Arabia\tMecca\t601m\t2012\t2\t\n' ]
+row 1:  [ 'Clock Tower Hotel\tSaudi Arabia\tMecca\t601m\t2012\t2\t\n' ]
+[ 'Clock Tower Hotel\tSaudi Arabia\tMecca\t601m\t2012\t2\t\n' ]
+row 2:  [ 'Taipei 101\tTaiwan\tTaipei\t509m\t2004\t3\t\n' ]
+[ 'Clock Tower Hotel\tSaudi Arabia\tMecca\t601m\t2012\t2\t\n' ]
+row 3:  [ 'Financial Center\tChina\tShanghai\t492m\t2008\t4\t\n' ]
+[ 'Clock Tower Hotel\tSaudi Arabia\tMecca\t601m\t2012\t2\t\n' ]
+row 4:  []
