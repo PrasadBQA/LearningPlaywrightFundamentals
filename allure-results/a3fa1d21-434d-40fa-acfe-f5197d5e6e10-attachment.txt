@@ -1,0 +1,8 @@
+Before each test: 
+[
+  locator('.bar').first(),
+  locator('.bar').nth(1),
+  locator('.bar').nth(2),
+  locator('.bar').nth(3),
+  locator('.bar').nth(4)
+]

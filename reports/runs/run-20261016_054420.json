@@ -1,0 +1,6 @@
+{
+  "runId": "20261016_054420",
+  "tests": {
+    "chromium › 12_Handle_SVG\\265_SMaps_Optimized.spec.ts › Simple Maps › Locate SVG Root and Get state details from maps, assert visible: ": "passed"
+  }
+}

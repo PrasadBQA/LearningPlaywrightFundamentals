@@ -1,0 +1,6 @@
+{
+  "runId": "20261015_060118",
+  "tests": {
+    "chromium › 12_Handle_SVG\\263_SVG_Advance.spec.ts › SVG Elements:  › Locate SVG root and assert visible: ": "passed"
+  }
+}

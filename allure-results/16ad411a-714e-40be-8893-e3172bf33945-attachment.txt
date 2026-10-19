@@ -1,0 +1,1 @@
+C:\Users\prasa\Documents\LearnPlaywrightFundamentals\tests\14_FileUpload\testdata.txt
