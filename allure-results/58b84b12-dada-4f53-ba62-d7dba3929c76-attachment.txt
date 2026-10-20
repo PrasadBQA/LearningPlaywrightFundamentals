@@ -1,0 +1,2 @@
+C:\Users\prasa\Documents\LearnPlaywrightFundamentals\tests\14_FileUpload\file1.jpg
+C:\Users\prasa\Documents\LearnPlaywrightFundamentals\tests\14_FileUpload\file2.jpg

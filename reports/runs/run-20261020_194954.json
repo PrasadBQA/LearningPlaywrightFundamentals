@@ -1,0 +1,6 @@
+{
+  "runId": "20261020_194954",
+  "tests": {
+    "chromium › 14_FileUpload\\272_Mixed_FileUpload.spec.ts › Handeling Mixed files Upload:  › Find Locator and Upload files: ": "passed"
+  }
+}

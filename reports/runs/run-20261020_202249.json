@@ -1,0 +1,6 @@
+{
+  "runId": "20261020_202249",
+  "tests": {
+    "chromium › 15_File_Download\\274_FileDownload.spec.ts › File Download Handeling:  › Locate Download button and save the file: ": "passed"
+  }
+}
