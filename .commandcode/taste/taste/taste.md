@@ -1,0 +1,15 @@
+# Taste
+- Learning Playwright as a student; asks conceptual/verification questions about the APIs and assertions used in their own spec files (e.g. "what will abort signal do, where it's useful", "check these are locator assertions") and benefits from explanations grounded in their actual test code plus practical use cases. Confidence: 0.7
+- When confirming a classification/category of things in their code (e.g. value vs locator assertions), wants a clear verdict up front plus the discriminating criteria and a contrast against the other category. Confidence: 0.6
+- Asks for brevity when explanations run long (e.g. "give me in short") — prefers concise answers for conceptual follow-ups. Confidence: 0.6
+- Prefers automating repetitive scaffolding with custom slash commands, invoked with arguments (e.g. uses `/start-pw create <name>` to generate a new Playwright spec file from a fixed template). Confidence: 0.9
+- Writes short, direct, informal instructions and expects the assistant to just implement them without much back-and-forth. Confidence: 0.7
+- Prefers reusable custom slash commands to be installed at the user level (`~/.commandcode/commands/`) so they work in every project, not scoped to a single project. Confidence: 0.85
+- When asked to enhance or explain an existing file, wants the original content left untouched — new material should be added/appended rather than editing existing content. Confidence: 0.85
+- Prefers explanations of a set of items to be structured per item as a simple one-liner plus a deeper "how it works" note plus a real-world example. Confidence: 0.8
+- Prefers explanatory notes/takeaways to be written directly into the relevant code file as comments (e.g. `// NOTE: ...`) so they persist with the code, not just live in chat. Confidence: 0.7
+- Expects immediate execution once an instruction is given and grows impatient with apparent delays or hesitation (e.g. "why are you waiting"). Confidence: 0.6
+- Prefers interactive, communicative responses — wants the assistant to explain its reasoning, ask clarifying questions, and keep the conversation engaging rather than giving terse one-line answers. Confidence: 0.85
+- File-creation location default: put new files in the directory of the currently active/open file (the folder being worked in), not the project root — only use another location when explicitly told. Confidence: 0.85
+- When explaining or solving problems, wants step-by-step reasoning and the "why": walk through the logic, root cause, and trade-offs rather than only stating the conclusion. Confidence: 0.85
+- Prefers reasoning woven into a natural, conversational explanation rather than rigid numbered/bulleted step-by-step breakdowns — avoid that structure unless explicitly asked. Confidence: 0.9
