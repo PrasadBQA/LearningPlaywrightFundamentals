@@ -204,6 +204,45 @@ Run tests with the Playwright Inspector:
 npx playwright test --debug
 ```
 
+## Filter tests by tag or title (grep)
+
+`--grep` matches the full test title, including any `@tags` you write in the test name. The value is treated as a regular expression, so `|` means "or" and characters such as `.` or `(` need escaping. `--grep-invert` does the opposite: it runs everything whose title does **not** match.
+
+Run only tests tagged `@p1`:
+
+```powershell
+npx playwright test --grep "@p1"       # only "Login test @p1 @smoke"
+```
+
+Match either tag using a regex alternative:
+
+```powershell
+npx playwright test --grep "@p1|@p2"  # regex, matches either
+```
+
+Exclude tests tagged `@smoke`:
+
+```powershell
+npx playwright test --grep-invert @smoke   # exclude smoke
+```
+
+Combine both flags to narrow the selection further:
+
+```powershell
+npx playwright test --grep "@p1|@p2" --grep-invert @smoke
+```
+
+Notes:
+
+- Quote the pattern in PowerShell whenever it contains `|`, `(`, `)`, or `$`, otherwise the shell parses it before Playwright sees it.
+- Tags are plain text in the title, e.g. `test('Login test @p1 @smoke', async ({ page }) => {})`. They only become filters through grep.
+- `-g` is shorthand for `--grep`.
+- Preview which tests match without running them by adding `--list`:
+
+```powershell
+npx playwright test --grep "@p1" --list
+```
+
 ## View the HTML report
 
 Open the last test report:

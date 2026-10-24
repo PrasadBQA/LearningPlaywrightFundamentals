@@ -1,0 +1,7 @@
+{
+  "runId": "20261024_114809",
+  "tests": {
+    "chromium › 18_Test_hooks\\286_TP.spec.ts › Login test @p1 @smoke": "passed",
+    "chromium › 18_Test_hooks\\286_TP.spec.ts › Profile test @p2": "passed"
+  }
+}

@@ -1,7 +1,8 @@
 # Taste
 - Learning Playwright as a student; asks conceptual/verification questions about the APIs and assertions used in their own spec files (e.g. "what will abort signal do, where it's useful", "check these are locator assertions") and benefits from explanations grounded in their actual test code plus practical use cases. Confidence: 0.7
-- When confirming a classification/category of things in their code (e.g. value vs locator assertions), wants a clear verdict up front plus the discriminating criteria and a contrast against the other category. Confidence: 0.6
-- Asks for brevity when explanations run long (e.g. "give me in short") — prefers concise answers for conceptual follow-ups. Confidence: 0.6
+- When confirming a classification/category of things in their code (e.g. value vs locator assertions, "test.step() also runtime annotation right"), wants a clear verdict up front (including "not quite" corrections) plus the discriminating criteria and a contrast against the other category. Confidence: 0.7
+- Cares about precise terminology when taking notes ("then what do we call test.step()") — wants the correct official name/label for a thing plus where it sits in a simple taxonomy of the neighbouring categories. Confidence: 0.65
+- Repeatedly asks for brevity on conceptual requests (e.g. "give me in short", "give me brief info about test hooks") — prefers concise, condensed answers unless they ask to go deeper. Confidence: 0.7
 - Prefers automating repetitive scaffolding with custom slash commands, invoked with arguments (e.g. uses `/start-pw create <name>` to generate a new Playwright spec file from a fixed template). Confidence: 0.9
 - Writes short, direct, informal instructions and expects the assistant to just implement them without much back-and-forth. Confidence: 0.7
 - Prefers reusable custom slash commands to be installed at the user level (`~/.commandcode/commands/`) so they work in every project, not scoped to a single project. Confidence: 0.85
