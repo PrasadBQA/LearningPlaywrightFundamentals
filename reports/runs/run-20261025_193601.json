@@ -1,0 +1,10 @@
+{
+  "runId": "20261025_193601",
+  "tests": {
+    "chromium › 19_Data_Driven_Testing\\290_Real_DDT_JSON.spec.ts › DDT with JSON file data › Login With: empty password": "passed",
+    "chromium › 19_Data_Driven_Testing\\290_Real_DDT_JSON.spec.ts › DDT with JSON file data › Login With: valid credentials": "passed",
+    "chromium › 19_Data_Driven_Testing\\290_Real_DDT_JSON.spec.ts › DDT with JSON file data › Login With: empty username": "failed",
+    "chromium › 19_Data_Driven_Testing\\290_Real_DDT_JSON.spec.ts › DDT with JSON file data › Login With: both empty": "failed",
+    "chromium › 19_Data_Driven_Testing\\290_Real_DDT_JSON.spec.ts › DDT with JSON file data › Login With: invalid password": "timedOut"
+  }
+}

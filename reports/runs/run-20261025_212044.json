@@ -1,0 +1,12 @@
+{
+  "runId": "20261025_212044",
+  "tests": {
+    "chromium › 19_Data_Driven_Testing\\291_Real_DDT_CSV.spec.ts › DDT CSV:  › Login with : empty password": "failed",
+    "chromium › 19_Data_Driven_Testing\\291_Real_DDT_CSV.spec.ts › DDT CSV:  › Login with : empty username": "failed",
+    "chromium › 19_Data_Driven_Testing\\291_Real_DDT_CSV.spec.ts › DDT CSV:  › Login with : valid credentials": "failed",
+    "chromium › 19_Data_Driven_Testing\\291_Real_DDT_CSV.spec.ts › DDT CSV:  › Login with : locked account": "failed",
+    "chromium › 19_Data_Driven_Testing\\291_Real_DDT_CSV.spec.ts › DDT CSV:  › Login with : invalid password": "failed",
+    "chromium › 19_Data_Driven_Testing\\291_Real_DDT_CSV.spec.ts › DDT CSV:  › Login with : special chars": "failed",
+    "chromium › 19_Data_Driven_Testing\\291_Real_DDT_CSV.spec.ts › DDT CSV:  › Login with : SQL injection": "failed"
+  }
+}

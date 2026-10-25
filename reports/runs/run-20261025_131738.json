@@ -1,0 +1,6 @@
+{
+  "runId": "20261025_131738",
+  "tests": {
+    "chromium › 19_Data_Driven_Testing\\288_Read_From_Json.spec.ts › Read Data from JSON": "passed"
+  }
+}

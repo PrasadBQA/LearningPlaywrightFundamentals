@@ -9,7 +9,8 @@ import { test, expect } from '@playwright/test';
 // TC01 → TC02 → P1 → P2 → P3 → Login(@p1) → Profile(@p2) → Settings(@p3)
 // If any one fails, the rest are skipped; a retry restarts the whole file's group.
 
-// @p1, @p2, @p3, @smoke are just text in the test title. Playwright doesn't interpret them — they're for filtering with grep:s
+// @p1, @p2, @p3, @smoke are just text in the test title. Playwright doesn't interpret them — they're for filtering with grep:
+
 
 test('TC01 - Login should work', async ({ page }) => {
   await page.goto('https://app.vwo.com');

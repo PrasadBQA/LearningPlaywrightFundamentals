@@ -1,6 +1,9 @@
 //https://app.thetestingacademy.com/playwright/multiple_element_filter.html
 
 import { test, expect } from '@playwright/test';
+// IMP: Divide your test into multiple steps, it will be better for your reporting, logs, debugging. 
+// Using test.step() you can achive this
+
 
 // test.step()- Playwright docs call it a "declared test step shown in the report." 
 // It's categorized as a runtime test API (like test.info(), test.setTimeout(), test.use()), specifically a reporting/grouping primitive.
