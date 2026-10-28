@@ -18,12 +18,14 @@
   "author": "Prasad Babburi",
   "licenses": [],
   "devDependencies": {
+    "@faker-js/faker": "^10.6.0",
     "@playwright/test": "^1.63.0",
     "@types/node": "^22.20.3",
     "allure-playwright": "^3.12.2"
   },
   "dependencies": {
     "allure-commandline": "^2.46.1",
-    "dotenv": "^18.0.3"
+    "dotenv": "^18.0.3",
+    "exceljs": "^4.4.0"
   }
 }

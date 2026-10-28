@@ -1,0 +1,10 @@
+{
+  "runId": "20261028_222825",
+  "tests": {
+    "chromium › 19_Data_Driven_Testing\\292_Real_DDT_JSON.spec.ts › DDT using JSON File › Login with weak password": "passed",
+    "chromium › 19_Data_Driven_Testing\\292_Real_DDT_JSON.spec.ts › DDT using JSON File › Login with valid registration": "passed",
+    "chromium › 19_Data_Driven_Testing\\292_Real_DDT_JSON.spec.ts › DDT using JSON File › Login with password mismatch": "passed",
+    "chromium › 19_Data_Driven_Testing\\292_Real_DDT_JSON.spec.ts › DDT using JSON File › Login with duplicate email": "passed",
+    "chromium › 19_Data_Driven_Testing\\292_Real_DDT_JSON.spec.ts › DDT using JSON File › Login with invalid email format": "passed"
+  }
+}

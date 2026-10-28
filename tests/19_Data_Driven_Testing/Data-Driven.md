@@ -1,3 +1,52 @@
+![alt text](image.png)
+
+
+# Faker JS 
+It is a third-party library which is used to generate fake test data which looks real in a dynamic format. 
+
+Generate massive amounts of fake (but realistic) data for testing and development.
+
+[www.npmjs.com/package/@faker-js/faker](https://www.npmjs.com/package/@faker-js/faker) 
+
+Faker tries to generate realistic data and not obvious fake data.
+
+
+
+## 🚀 Features
+- 🧍 Person - Generate Names, Genders, Bios, Job titles, and more.
+- 📍 Location - Generate Addresses, Zip Codes, Street Names, States, and Countries!
+- ⏰ Date - Past, present, future, recent, soon... whenever!
+- 💸 Finance - Create stubbed out Account Details, Transactions, and Crypto Addresses.
+- 👠 Commerce - Generate Prices, Product Names, Adjectives, and Descriptions.
+- 👾 Hacker - “Try to reboot the SQL bus, maybe it will bypass the virtual application!”
+- 🔢 Number and String - Of course, we can also generate random numbers and strings.
+- 🌏 Localization - Pick from over 70 locales to generate realistic looking Names, Addresses, and Phone Numbers.
+
+
+import { test, expect } from '@playwright/test';
+import { faker } from '@faker-js/faker';
+
+const totalUserCount = 5;
+const emailDomains = ['gmail.com', 'yahoo.com', 'outlook.com', 'tta.dev', 'icloud.com'];
+
+for (let i = 1; i <= totalUserCount; i++) {
+    test(`Register user# ${i} (${emailDomains[i - 1]})`, async ({ page }) => {
+        const firstName = faker.person.firstName();
+        const lastName = faker.person.lastName();
+        const email = `${firstName.toLowerCase()}.${lastName.toLowerCase()}@${emailDomains[i - 1]}`;
+        const password = faker.internet.password({ length: 20, memorable: true, pattern: /[A-Z]/, prefix: 'Auto ' });
+
+        await page.goto('https://app.thetestingacademy.com/playwright/tables/practice.html');
+        await page.getByRole('textbox', { name: 'First Name' }).fill(firstName);
+        await page.getByRole('textbox', { name: 'Last Name' }).fill(lastName);
+        await page.getByRole('textbox', { name: 'Email' }).fill(email);
+        await page.getByRole('textbox', { name: 'Password' }).first().fill(password);
+        await page.getByRole('button', { name: 'Save profile' }).click();
+        await expect(page.locator('#submission-output')).toContainText(email);
+    });
+}
+
+
 What is Data Driven Testing:
 
 Data driven testing is a way of testing where you have an external data source and the application under test.
