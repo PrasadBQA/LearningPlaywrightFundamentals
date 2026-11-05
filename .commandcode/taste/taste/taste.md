@@ -15,4 +15,5 @@
 - File-creation location default: put new files in the directory of the currently active/open file (the folder being worked in), not the project root — only use another location when explicitly told. Confidence: 0.85
 - When explaining or solving problems, wants step-by-step reasoning and the "why": walk through the logic, root cause, and trade-offs rather than only stating the conclusion. Confidence: 0.85
 - Prefers reasoning woven into a natural, conversational explanation rather than rigid numbered/bulleted step-by-step breakdowns — avoid that structure unless explicitly asked. Confidence: 0.9
+- When drafting an email/message to a recipient who is new/unknown to the sender, wants it warm and friendly (brief intro, polite thanks) rather than a formal template — corrects drafts that read as boilerplate. Confidence: 0.65
 - Demands factually verified root causes: pushes back hard on plausible-sounding but wrong explanations ("your reason is invalid") and expects the assistant to re-check the actual code/page source and current file state before restating a diagnosis. Confidence: 0.75
