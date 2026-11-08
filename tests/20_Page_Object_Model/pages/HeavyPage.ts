@@ -1,3 +1,15 @@
+//                *** Limitations of Page Object Model ***
+
+// Gaint classes - Sometimes you'll see gaint classes in cases of POM
+// WEAK Locator - will break the full automation
+// Sometimes abstration is too much.
+// eg: loginPage --> footer, header, body --> div page...
+
+
+
+
+
+
 import { type Locator, type Page } from '@playwright/test';
 
 /**
